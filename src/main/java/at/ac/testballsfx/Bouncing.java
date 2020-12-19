@@ -2,7 +2,6 @@ package at.ac.testballsfx;
 
 public class Bouncing {
 
-    public static final double SPEED = 5;
 
     // change of dx and dy
     private double dx;

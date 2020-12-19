@@ -65,7 +65,7 @@ public class SimulationController {
     @FXML
     public void  initialize(){
 
-        // Slider needs ”Listener” to acknowledge changes and set Method / set size (what to do)
+        // Slider needs Listener to acknowledge changes and set Method / set size (what to do)
 
         sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
