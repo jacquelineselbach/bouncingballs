@@ -2,7 +2,6 @@ package at.ac.testballsfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -15,7 +14,7 @@ public class App extends Application {
         try {
 
             FXMLLoader loader = new FXMLLoader();
-            BorderPane root = (BorderPane) loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
+            BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
 
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

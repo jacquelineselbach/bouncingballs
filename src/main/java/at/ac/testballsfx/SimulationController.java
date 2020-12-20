@@ -27,8 +27,8 @@ public class SimulationController {
     @FXML
     Button stepButton;
 
-    @FXML
-    Slider sizeSlider;
+    // @FXML
+    // Slider sizeSlider;
 
     @FXML
     Slider recoverySlider;
@@ -36,8 +36,6 @@ public class SimulationController {
     @FXML
     Slider distanceSlider;
 
-    @FXML
-    TextField tickText;
 
 
     Simulation simulation;
@@ -48,7 +46,7 @@ public class SimulationController {
     private class Movement extends AnimationTimer {
 
 
-        private long FRAMES_PER_SEC = 50L; // 50 Frames per second
+        private long FRAMES_PER_SEC = 80L; // 50 Frames per second
         private long INTERVAL = 1000000000L / FRAMES_PER_SEC;
         private long last = 0;
 
@@ -67,12 +65,12 @@ public class SimulationController {
 
         // Slider needs Listener to acknowledge changes and set Method / set size (what to do)
 
-        sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        /* sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 setSize(); // encapsulate in method
             }
-        });
+        }); */
 
         recoverySlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -100,13 +98,13 @@ public class SimulationController {
         simulation = new Simulation(area, 300);
     }
 
-    public void setSize () {
+    /* public void setSize () {
         Ball.radius = (int)sizeSlider.getValue();
         simulation.draw();
-    }
+    } */
 
     public void setRecovery () {
-        Ball.healtime = 50 * (int)recoverySlider.getValue(); // because healtime slider handles seconds, we need to multiply by 50
+        Ball.healtime = 80 * (int)recoverySlider.getValue(); // because healtime slider handles seconds, we need to multiply by 50
         simulation.draw();
     }
 

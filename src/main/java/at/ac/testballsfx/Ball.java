@@ -8,8 +8,8 @@ public class Ball {
 
     // to adjust radius/size of balls
     public static int radius = 5;
-    public static int healtime = 5 * 50; // because 50 Frames per second
-    public static int distance  = 200; // should simulate distance from where a ball starts in the simulation > add origin
+    public static int healtime = 5 * 80; // because 80 Frames per second
+    public static int distance  = 1000; // should simulate distance from where a ball starts in the simulation > add origin
 
     private State state;
     private Position location;
@@ -51,7 +51,8 @@ public class Ball {
     // balls need to move
 
     public void move() {
-        location.move(bouncing, area, origin);
+
+        location.move(bouncing, area, origin); // origin = where is it coming from - important for distance
     }
 
     // balls need to be drawn

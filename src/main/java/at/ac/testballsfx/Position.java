@@ -45,12 +45,12 @@ public class Position {
 
         // if x/y get less then 0 Or greater than width/ height we want to bounce the balls back from the wall
 
-        if (x < Ball.radius || x > area.getWidth() - Ball.radius) {
+        if (x < Ball.radius || x > area.getWidth() - Ball.radius || distance(origin) > Ball.distance) { // distance(origin) > Ball.distance creates a "box/radius" around a ball
             bouncing.bounceX();
             x += bouncing.getDx();
         }
 
-        if (y < Ball.radius || y > area.getHeight() - Ball.radius) {
+        if (y < Ball.radius || y > area.getHeight() - Ball.radius || distance(origin) > Ball.distance) {  // distance(origin) > Ball.distance creates a "box/radius" around a ball
             bouncing.bounceY();
             y += bouncing.getDy();
         }
