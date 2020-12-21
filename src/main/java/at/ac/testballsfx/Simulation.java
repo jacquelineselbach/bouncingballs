@@ -34,7 +34,11 @@ public class Simulation {
 
     public void move() {
         for (Ball b : balls) {
-            b.move();
+            if(b.getState() == State.DEAD)
+            {
+                continue;
+            }
+           b.move();
         }
     }
 
