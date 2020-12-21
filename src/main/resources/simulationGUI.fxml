@@ -10,31 +10,71 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.testballsfx.SimulationController">
    <right>
       <VBox prefHeight="1200.0" prefWidth="254.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="58.0" prefWidth="254.0">
+            <HBox prefHeight="30.0" prefWidth="40.0"> <!-- prefHeight="58.0" prefWidth="254.0"> -->
                <children>
-                  <Button mnemonicParsing="false" onAction="#reset" text="Start / Restart">
+                  <Button mnemonicParsing="false" onAction="#reset">    <!--  text="Start / Restart">  -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+
                   </Button>
-                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#start" text="Move">
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Move"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://img.icons8.com/color/2x/move.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+
                   </Button>
-                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop" text="Stop">
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+
+
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+
+
                   </Button>
-                  <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step" text="Step">
+                  <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
+
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="https://img.icons8.com/ios/2x/step-over.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+
                   </Button>
                </children>
                <VBox.margin>
