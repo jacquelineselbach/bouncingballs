@@ -1,5 +1,7 @@
 package at.ac.testballsfx;
 
+import java.util.Random;
+
 public class Bouncing {
 
     private final static int SPEED = 2;
@@ -27,24 +29,20 @@ public class Bouncing {
     // getDirection
 
     public double getDx() {
-
         return dx * SPEED;
     }
 
     public double getDy() {
-
         return dy * SPEED;
     }
 
     // if we hit "walls" dx/dy we want do change direction
 
     public void bounceX() {
-
         dx *= -1;
     }
 
     public void bounceY() {
-
         dy *= -1;
     }
 
