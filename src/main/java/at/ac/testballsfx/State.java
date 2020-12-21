@@ -14,7 +14,7 @@ public enum State {
     }, INFECTED {
         public Color getColor(){
 
-            return Color.ROYALBLUE;
+            return Color.YELLOW;
         }
     }, RECOVERED {
         public Color getColor(){

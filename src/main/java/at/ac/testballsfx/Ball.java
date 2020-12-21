@@ -9,7 +9,8 @@ public class Ball {
     // to adjust radius/size of balls
     public static int radius = 5;
     public static int healtime = 5 * 80; // because 80 Frames per second
-    public static int distance  = 1000; // should simulate distance from where a ball starts in the simulation > add origin
+    public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
+    // i know it's a large number but otherwise not everybody will get infected (still not every balls gets always infected..... pretty random lol we have to work on this)
 
     private State state;
     private Position location;

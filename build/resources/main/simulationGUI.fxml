@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.testballsfx.SimulationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.testballsfx.SimulationController">
    <bottom>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </BorderPane.margin>
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox layoutX="-13.0" prefHeight="100.0" prefWidth="200.0" />
          </children>
       </Pane>
    </center>
@@ -40,11 +40,19 @@
             <Label text="Recovery (sec)" />
             <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="10.0" min="5.0" minorTickCount="2" showTickMarks="true" value="5.0" />
             <Label text="Distance" />
-            <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="2000.0" minorTickCount="2" showTickMarks="true" value="2000.0" />
+            <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="10000.0" minorTickCount="2" showTickMarks="true" value="10000.0" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" right="10.0" top="20.0" />
          </BorderPane.margin>
       </VBox>
    </right>
+   <left>
+      <VBox prefHeight="213.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="histogram" prefHeight="293.0" prefWidth="300.0" />
+            <Pane fx:id="chart" prefHeight="309.0" prefWidth="300.0" />
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
