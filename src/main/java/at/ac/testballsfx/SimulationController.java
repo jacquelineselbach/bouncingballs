@@ -144,7 +144,7 @@ public class SimulationController {
         area.getChildren().clear(); // clear scene before reset
         histogram.getChildren().clear(); // clear scene for histogram
         chart.getChildren().clear(); // clear scene for chart
-        simulation = new Simulation(area, 100, 20);
+        simulation = new Simulation(area, 100, 10);
 
         int offset = 0;
 

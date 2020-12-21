@@ -10,42 +10,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.testballsfx.SimulationController">
-   <center>
-      <Pane fx:id="area" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </BorderPane.margin>
-         <children>
-            <HBox layoutX="-13.0" prefHeight="100.0" prefWidth="200.0" />
-         </children>
-      </Pane>
-   </center>
    <right>
-      <VBox prefHeight="356.0" prefWidth="101.0" spacing="5.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" right="10.0" top="20.0" />
-         </BorderPane.margin>
-      </VBox>
-   </right>
-   <left>
-      <VBox prefHeight="213.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="1200.0" prefWidth="254.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="histogram" prefHeight="293.0" prefWidth="300.0">
-               <children>
-                  <Label text="Histogram" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="15.0" top="15.0" />
-               </VBox.margin>
-            </Pane>
-            <HBox prefHeight="66.0" prefWidth="300.0" spacing="15.0">
+            <HBox prefHeight="58.0" prefWidth="254.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#reset" text="Start / Restart">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
@@ -66,35 +37,42 @@
                      </padding>
                   </Button>
                </children>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
             </HBox>
-            <HBox prefHeight="22.0" prefWidth="300.0">
+            <Label text="Recovery" />
+            <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="15.0" min="5.0" minorTickCount="2" showTickMarks="true" value="5.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Slider>
+            <Label text="Distance" />
+            <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="10000.0" minorTickCount="2" showTickMarks="true" value="10000.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Slider>
+            <TextField fx:id="instantsCounter" editable="false" prefHeight="27.0" prefWidth="239.0" />
+            <Pane fx:id="histogram" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="324.0" prefWidth="254.0">
                <children>
-                  <Label text="Recovery">
-                     <HBox.margin>
-                        <Insets right="90.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="Distance" />
+                  <Label text="Histogram" />
                </children>
-            </HBox>
-            <HBox prefHeight="42.0" prefWidth="300.0">
-               <children>
-                  <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="20.0" min="10.0" minorTickCount="2" showTickMarks="true" value="20.0" />
-                  <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="10000.0" minorTickCount="2" showTickMarks="true" value="10000.0" />
-               </children>
-            </HBox>
-            <TextField fx:id="instantsCounter" editable="false" prefHeight="8.0" prefWidth="300.0" />
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Pane>
          </children>
       </VBox>
-   </left>
-   <bottom>
-      <Pane fx:id="chart" maxHeight="220.0" maxWidth="1051.0" prefHeight="189.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Population over Time" />
-         </children>
+   </right>
+   <center>
+      <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="669.0" prefWidth="1053.0" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </BorderPane.margin>
       </Pane>
+   </center>
+   <bottom>
+      <Pane fx:id="chart" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT" />
    </bottom>
 </BorderPane>
