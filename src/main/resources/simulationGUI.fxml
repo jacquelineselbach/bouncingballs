@@ -37,8 +37,8 @@
    <right>
       <VBox prefHeight="356.0" prefWidth="101.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Recovery (sec)" />
-            <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="10.0" min="5.0" minorTickCount="2" showTickMarks="true" value="5.0" />
+            <Label text="Recovery" />
+            <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="20.0" min="10.0" minorTickCount="2" showTickMarks="true" value="20.0" />
             <Label text="Distance" />
             <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="10000.0" minorTickCount="2" showTickMarks="true" value="10000.0" />
          </children>
