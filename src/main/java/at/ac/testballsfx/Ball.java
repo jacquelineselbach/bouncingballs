@@ -36,8 +36,6 @@ public class Ball {
         this.area = area;
         this.c = new Circle(radius, state.getColor());
 
-
-
         // area needs to draw circles
         area.getChildren().add(c);
     }
