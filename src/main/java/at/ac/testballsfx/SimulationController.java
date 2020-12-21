@@ -11,7 +11,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 import java.util.EnumMap;
 
@@ -45,6 +47,10 @@ public class SimulationController {
     @FXML
     Pane histogram;
 
+    @FXML
+    TextField instantsCounter;   // captures of the moment sec
+
+
 
     Simulation simulation;
 
@@ -59,15 +65,49 @@ public class SimulationController {
 
         private long FRAMES_PER_SEC = 80L; // 80 Frames per second
         private long INTERVAL = 1000000000L / FRAMES_PER_SEC;
+
         private long last = 0;
+        private int instants = 0;
+
+        /**
+         * This method needs to be overridden by extending classes. It is going to
+         * be called in every frame while the {@code AnimationTimer} is active.
+         *
+         * @param now
+         *            The timestamp of the current frame given in nanoseconds. This
+         *            value will be the same for all {@code AnimationTimers} called
+         *            during one frame.
+         */
+
 
         @Override
         public void handle(long now) {
             if (now - last > INTERVAL) {
                 step();
                 last = now;
+                instant();
+                instantsCounter.setText("" + instants); // print the instances
             }
             // next one, how long has it been since last one / when interval gets big enough, calls action
+        }
+        /**
+         * Starts the {@code AnimationTimer}. Once it is started, the
+         * {@link #handle(long)} method of this {@code AnimationTimer} will be
+         * called in every frame.
+         *
+         * The {@code AnimationTimer} can be stopped by calling {@link #stop()}.
+         */
+
+        public int getInstants() {
+            return instants;
+        }
+
+        public void resetInstants() {
+            instants = 0; // resets the instants / timesteps to zero after START/RESET
+        }
+
+        public void instant(){
+            instants++;
         }
     }
 
@@ -99,10 +139,12 @@ public class SimulationController {
     @FXML
     public void reset(){
         stop();
+        clock.resetInstants();
+        instantsCounter.setText("" + clock.getInstants());
         area.getChildren().clear(); // clear scene before reset
         histogram.getChildren().clear(); // clear scene for histogram
         chart.getChildren().clear(); // clear scene for chart
-        simulation = new Simulation(area, 150);
+        simulation = new Simulation(area, 100, 20);
 
         int offset = 0;
 
@@ -155,6 +197,9 @@ public class SimulationController {
         simulation.resolveCollisions();
         simulation.draw();
         drawChart(); // as every time step goes the chart will be drawn
+        clock.instant();
+        instantsCounter.setText("" + clock.getInstants());
+
     }
 
 
@@ -175,14 +220,23 @@ public class SimulationController {
             currentPopulation.put(b.getState(), 1 + currentPopulation.get(b.getState()));
         }
 
-        // setting heights for current populations / drawing the actual rectangles
+        // setting heights for current populations / drawing the actual rectangles for histogram
         for (State state : pot.keySet()) {
             if (currentPopulation.containsKey(state)){ // if there are 50 balls infected, the height is going to be 50
                 pot.get(state).setHeight(currentPopulation.get(state));
-                pot.get(state).setTranslateY(30 + 300 - currentPopulation.get(state)); // 300 because of inital population of 150
+                pot.get(state).setTranslateY(30 + 120 - currentPopulation.get(state)); // 300 because of inital population of 130
 
+
+                // line chart
+                Circle c = new Circle(1,state.getColor());
+                c.setTranslateX(clock.getInstants() / 5.0);
+                c.setTranslateY(120 - currentPopulation.get(state));
+                chart.getChildren().add(c);
             }
         }
+
+        if (!currentPopulation.containsKey(State.INFECTED))
+            stop();
 
     }
 }

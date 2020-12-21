@@ -8,7 +8,7 @@ public class Ball {
 
     // to adjust radius/size of balls
     public static int radius = 5;
-    public static int healtime = 5 * 80; // because 80 Frames per second
+    public static int healtime = 5 * 80; // because 60 Frames per second
     public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
     // i know it's a large number but otherwise not everybody will get infected (still not every balls gets always infected..... pretty random lol we have to work on this)
 
@@ -33,7 +33,7 @@ public class Ball {
         this.origin = new Position(location.getX(), location.getY()); // 2 Objects / 2 Positions / starting at the same Value
         this.area = area;
         this.c = new Circle(radius, state.getColor());
-        c.setStroke(Color.GRAY);
+
 
 
         // area needs to draw circles
@@ -41,6 +41,7 @@ public class Ball {
     }
 
     public State getState() {
+
         return state;
     }
 
@@ -65,10 +66,11 @@ public class Ball {
     }
 
     public void collisionCheck(Ball other) {
-        if(location.collision(other.location)) {
-            if (other.getState() == State.INFECTED && state == State.HEALTHY){
+        if (location.collision(other.location)) {
+            if (other.getState() == State.INFECTED && state == State.HEALTHY) {
                 setState(State.INFECTED);
-
+            } else if (other.getState() == State.INFECTED && state == State.ATRISK) {
+                setState(State.DEAD);
             }
         }
     }
@@ -76,10 +78,10 @@ public class Ball {
     public void healing() {
         if (state == State.INFECTED) {
             sickTime++;
-            if (sickTime > healtime) {
+            if (sickTime >= healtime) {
                 setState(State.RECOVERED);
             }
-
         }
     }
 }
+

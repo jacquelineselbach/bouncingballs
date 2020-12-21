@@ -2,6 +2,8 @@ package at.ac.testballsfx;
 
 public class Bouncing {
 
+    private final static int SPEED = 2;
+
 
     // change of dx and dy
     private double dx;
@@ -26,12 +28,12 @@ public class Bouncing {
 
     public double getDx() {
 
-        return dx;
+        return dx * SPEED;
     }
 
     public double getDy() {
 
-        return dy;
+        return dy * SPEED;
     }
 
     // if we hit "walls" dx/dy we want do change direction

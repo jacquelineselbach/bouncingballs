@@ -17,10 +17,19 @@ public enum State {
             return Color.YELLOW;
         }
     }, RECOVERED {
-        public Color getColor(){
+        public Color getColor() {
 
-            return Color.DARKSEAGREEN;}
-        };
+            return Color.DARKSEAGREEN;
+        }
+    }, DEAD {
+        public Color getColor() {
+            return Color.BLACK;
+        }
+    }, ATRISK {
+        public Color getColor() {
+            return Color.TRANSPARENT;
+        }
+    };
 
         public abstract Color getColor();
 }
