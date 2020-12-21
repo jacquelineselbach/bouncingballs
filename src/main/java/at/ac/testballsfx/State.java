@@ -25,10 +25,6 @@ public enum State {
         public Color getColor() {
             return Color.BLACK;
         }
-    }, ATRISK {
-        public Color getColor() {
-            return Color.TRANSPARENT;
-        }
     };
 
         public abstract Color getColor();

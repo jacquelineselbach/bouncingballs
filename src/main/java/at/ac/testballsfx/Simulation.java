@@ -17,11 +17,6 @@ public class Simulation {
             balls.add(new Ball(State.HEALTHY, area));
         }
 
-        for (int i = 0; i < populationSizeAtRisk; i++) {
-            balls.add(new Ball(State.ATRISK, area));
-        }
-
-
         // add infected ball in area simulation
 
         balls.add(new Ball(State.INFECTED, area));

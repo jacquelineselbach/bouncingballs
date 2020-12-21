@@ -69,8 +69,6 @@ public class Ball {
         if (location.collision(other.location)) {
             if (other.getState() == State.INFECTED && state == State.HEALTHY) {
                 setState(State.INFECTED);
-            } else if (other.getState() == State.INFECTED && state == State.ATRISK) {
-                setState(State.DEAD);
             }
         }
     }
@@ -82,9 +80,9 @@ public class Ball {
         if (state == State.INFECTED) {
             sickTime++;
             prob = rand.nextDouble();
-            if (sickTime >= healtime && prob < 0.5) {
+            if (sickTime >= healtime && prob < 0.8) {
                 setState(State.RECOVERED);
-            } else if(sickTime >= healtime && prob >= 0.5) {
+            } else if(sickTime >= healtime && prob >= 0.2) {
                 setState(State.DEAD);
             }
         }
