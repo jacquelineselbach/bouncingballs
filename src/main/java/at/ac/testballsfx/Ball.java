@@ -4,6 +4,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class Ball {
 
     // to adjust radius/size of balls
@@ -76,12 +78,17 @@ public class Ball {
     }
 
     public void healing() {
+        Random rand = new Random();
+        double prob;
+
         if (state == State.INFECTED) {
             sickTime++;
-            if (sickTime >= healtime) {
+            prob = rand.nextDouble();
+            if (sickTime >= healtime && prob < 0.5) {
                 setState(State.RECOVERED);
+            } else if(sickTime >= healtime && prob >= 0.5) {
+                setState(State.DEAD);
             }
         }
     }
 }
-
