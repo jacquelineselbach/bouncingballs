@@ -2,46 +2,44 @@ package at.ac.testballsfx;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-import javafx.scene.paint.Color;
 
 import java.util.Random;
 
 public class Ball {
-
-    // to adjust radius/size of balls
-    public static int radius = 5;
-    public static int healtime = 5 * 80; // because 60 Frames per second
-    public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
-    // i know it's a large number but otherwise not everybody will get infected (still not every balls gets always infected..... pretty random lol we have to work on this)
-
-    private State state;
+    private Circle c; // draw circles on the screens
+    private Pane area; // draw area on the screens
     private Position location;
     private Position origin;
-    private Bouncing bouncing;
 
-    // draw circles on the screens
+    // positional variables and size of balls
+    public static int radius = 5;
+    private final static int SPEED = 2;
+    private double dx;
+    private double dy;
 
-    private Circle c;
-
-    // draw area on the screens
-
-    private Pane area;
+    // variables regarding sickness and health
+    private State state;
+    public static int healtime = 5 * 80; // runs on 80 frames per second at the moment
     private int sickTime = 0;
+    public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
+    // This could be used to simulate social distancing.
 
     public Ball(State state, Pane area) {
         this.state = state;
-        this.bouncing = new Bouncing();
         this.location = new Position(area); // 2 Objects / 2 Positions / starting at the same Value
         this.origin = new Position(location.getX(), location.getY()); // 2 Objects / 2 Positions / starting at the same Value
         this.area = area;
         this.c = new Circle(radius, state.getColor());
+
+        double direction = Math.random() * 2 * Math.PI;
+        dx = Math.sin(direction);
+        dy = Math.cos(direction);
 
         // area needs to draw circles
         area.getChildren().add(c);
     }
 
     public State getState() {
-
         return state;
     }
 
@@ -51,14 +49,11 @@ public class Ball {
     }
 
     // balls need to move
-
     public void move() {
-
-        location.move(bouncing, area, origin); // origin = where is it coming from - important for distance
+        location.move(this, area, origin); // origin = where is it coming from - important for distance
     }
 
     // balls need to be drawn
-
     public void draw() {
         c.setRadius(radius);
         c.setTranslateX(location.getX());
@@ -70,13 +65,16 @@ public class Ball {
             if (other.getState() == State.INFECTED && state == State.HEALTHY) {
                 setState(State.INFECTED);
             }
+            if(other.getState() != State.DEAD) {
+                bounceX();
+                bounceY();
+            }
         }
     }
 
     public void healing() {
         Random rand = new Random();
         double prob;
-
         if (state == State.INFECTED) {
             sickTime++;
             prob = rand.nextDouble();
@@ -86,5 +84,22 @@ public class Ball {
                 setState(State.DEAD);
             }
         }
+    }
+
+    public double getDx() {
+        return dx * SPEED;
+    }
+
+    public double getDy() {
+        return dy * SPEED;
+    }
+
+    // if we hit "walls" dx/dy we want do change direction
+    public void bounceX() {
+        dx *= -1;
+    }
+
+    public void bounceY() {
+        dy *= -1;
     }
 }

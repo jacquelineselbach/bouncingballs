@@ -12,13 +12,11 @@ public class Simulation {
         balls = new ArrayList<Ball>();
 
         // create healthy balls in area simulation
-
         for (int i = 0; i < populationSize; i++) {
             balls.add(new Ball(State.HEALTHY, area));
         }
 
         // add infected ball in area simulation
-
         balls.add(new Ball(State.INFECTED, area));
         draw();
     }
