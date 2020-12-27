@@ -65,9 +65,11 @@ public class Ball {
             if (other.getState() == State.INFECTED && state == State.HEALTHY) {
                 setState(State.INFECTED);
             }
-            if(other.getState() != State.DEAD) {
+            if(getState() != State.DEAD || other.getState() != State.DEAD) {
                 bounceX();
                 bounceY();
+                other.bounceX();
+                other.bounceY();
             }
         }
     }
