@@ -1,4 +1,4 @@
-package at.ac.testballsfx;
+package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

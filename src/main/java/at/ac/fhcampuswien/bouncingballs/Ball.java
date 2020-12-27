@@ -1,4 +1,4 @@
-package at.ac.testballsfx;
+package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;

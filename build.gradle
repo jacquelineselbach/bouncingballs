@@ -9,7 +9,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 
-mainClassName = 'at.ac.testballsfx.App'
+mainClassName = 'at.ac.fhcampuswien.bouncingballs.App'
 
 repositories {
     mavenCentral()
