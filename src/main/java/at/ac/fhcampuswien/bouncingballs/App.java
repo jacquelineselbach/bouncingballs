@@ -17,6 +17,7 @@ public class App extends Application {
             BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
             primaryStage.setScene(new Scene(root));
             primaryStage.setResizable(false);   // This prevents window from resizing
+            primaryStage.setTitle("Bouncing Balls");
             primaryStage.show();
 
         } catch (Exception e) {

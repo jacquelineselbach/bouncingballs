@@ -8,15 +8,17 @@ public class Simulation {
 
     private ArrayList<Ball> balls;
 
-    public Simulation(Pane area, int populationSize, int populationSizeAtRisk) {
+    public Simulation(Pane area, int populationSize) {
         balls = new ArrayList<Ball>();
 
         // create healthy balls in area simulation
+
         for (int i = 0; i < populationSize; i++) {
             balls.add(new Ball(State.HEALTHY, area));
         }
 
         // add infected ball in area simulation
+
         balls.add(new Ball(State.INFECTED, area));
         draw();
     }

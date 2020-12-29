@@ -19,10 +19,12 @@ public class Position {
     }
 
     // get distance between two points
-    public double getX(){
+    public double getX() {
+
         return x;
     }
-    public double getY(){
+    public double getY() {
+
         return y;
     }
 
@@ -32,7 +34,7 @@ public class Position {
         return (Math.sqrt(Math.pow(this.x - other.x, 2)) + (Math.pow(this.y - other.y, 2)));
     }
 
-    public void move(Ball ball, Pane area, Position origin){
+    public void move(Ball ball, Pane area) {
         x += ball.getDx();
         y += ball.getDy();
 
@@ -49,6 +51,7 @@ public class Position {
     }
 
     public boolean collision(Position other) {
+
         return distance(other) < 2 * Ball.radius; // if distance is less that two times the radius, collision occured
     }
 

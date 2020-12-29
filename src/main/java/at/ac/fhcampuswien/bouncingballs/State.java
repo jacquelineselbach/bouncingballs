@@ -19,11 +19,11 @@ public enum State {
     }, RECOVERED {
         public Color getColor() {
 
-            return Color.DARKSEAGREEN;
+            return Color.SPRINGGREEN;
         }
     }, DEAD {
         public Color getColor() {
-            return Color.BLACK;
+            return Color.DIMGREY;
         }
     };
 

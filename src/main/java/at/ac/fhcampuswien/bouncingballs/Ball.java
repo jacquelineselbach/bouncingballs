@@ -9,7 +9,7 @@ public class Ball {
     private Circle c; // draw circles on the screens
     private Pane area; // draw area on the screens
     private Position location;
-    private Position origin;
+    // private Position origin;
 
     // positional variables and size of balls
     public static int radius = 5;
@@ -19,15 +19,15 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state;
-    public static int healtime = 5 * 80; // runs on 80 frames per second at the moment
+    public static int healtime = 5 * 60; // runs on 60 frames per second at the moment
     private int sickTime = 0;
-    public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
+    // public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
     // This could be used to simulate social distancing.
 
     public Ball(State state, Pane area) {
         this.state = state;
         this.location = new Position(area); // 2 Objects / 2 Positions / starting at the same Value
-        this.origin = new Position(location.getX(), location.getY()); // 2 Objects / 2 Positions / starting at the same Value
+        // this.origin = new Position(location.getX(), location.getY());
         this.area = area;
         this.c = new Circle(radius, state.getColor());
 
@@ -50,7 +50,7 @@ public class Ball {
 
     // balls need to move
     public void move() {
-        location.move(this, area, origin); // origin = where is it coming from - important for distance
+        location.move(this, area);
     }
 
     // balls need to be drawn
@@ -68,8 +68,8 @@ public class Ball {
             if(getState() != State.DEAD || other.getState() != State.DEAD) {
                 bounceX();
                 bounceY();
-                other.bounceX();
-                other.bounceY();
+                // other.bounceX();
+                //other.bounceY();
             }
         }
     }
@@ -89,19 +89,23 @@ public class Ball {
     }
 
     public double getDx() {
+        
         return dx * SPEED;
     }
 
     public double getDy() {
+        
         return dy * SPEED;
     }
 
     // if we hit "walls" dx/dy we want do change direction
     public void bounceX() {
+        
         dx *= -1;
     }
 
     public void bounceY() {
+        
         dy *= -1;
     }
 }

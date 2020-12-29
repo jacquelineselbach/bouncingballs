@@ -1,117 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
-   <right>
-      <VBox prefHeight="1200.0" prefWidth="254.0" BorderPane.alignment="CENTER">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
+   <bottom>
+      <HBox prefHeight="343.0" prefWidth="1920.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="30.0" prefWidth="40.0"> <!-- prefHeight="58.0" prefWidth="254.0"> -->
+            <Pane fx:id="chart" prefHeight="333.0" prefWidth="1214.0" snapToPixel="false" />
+            <Pane fx:id="histogram" prefHeight="333.0" prefWidth="316.0">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Pane>
+            <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#reset">    <!--  text="Start / Restart">  -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      
+                           <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
                            </image>
                         </ImageView>
                      </graphic>
-
-                  </Button>
+      
+                        </Button>
                   <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Move"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      
+                           <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="https://img.icons8.com/color/2x/move.png" />
                            </image>
                         </ImageView>
                      </graphic>
-
-                  </Button>
+      
+                        </Button>
                   <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-
-
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      
+            
+                           <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
                            </image>
                         </ImageView>
                      </graphic>
-
-
-                  </Button>
+      
+            
+                        </Button>
                   <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-
-                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+      
+                           <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="https://img.icons8.com/ios/2x/step-over.png" />
                            </image>
                         </ImageView>
                      </graphic>
-
-                  </Button>
+      
+                        </Button>
                </children>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </HBox>
-            <Label text="Recovery">
-               <VBox.margin>
-                  <Insets bottom="3.0" top="20.0" />
-               </VBox.margin></Label>
-            <Slider fx:id="recoverySlider" majorTickUnit="5.0" max="15.0" min="5.0" minorTickCount="2" showTickMarks="true" value="5.0">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </Slider>
-            <Label text="Distance">
-               <VBox.margin>
-                  <Insets bottom="3.0" />
-               </VBox.margin></Label>
-            <Slider fx:id="distanceSlider" majorTickUnit="500.0" max="10000.0" minorTickCount="2" showTickMarks="true" value="10000.0">
-               <VBox.margin>
-                  <Insets bottom="20.0" />
-               </VBox.margin>
-            </Slider>
-            <TextField fx:id="instantsCounter" editable="false" prefHeight="27.0" prefWidth="239.0" />
-            <Pane fx:id="histogram" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="324.0" prefWidth="254.0">
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1684.0" />
+            <HBox prefHeight="20.0" prefWidth="200.0" spacing="1000.0">
                <children>
-                  <Label text="Histogram" />
+                  <Label alignment="TOP_LEFT" text="POPULATION  OVER TIME">
+                     <font>
+                        <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="HISTOGRAM">
+                     <font>
+                        <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
+                     </font>
+                  </Label>
                </children>
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets left="10.0" top="10.0" />
                </VBox.margin>
-            </Pane>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
          </children>
       </VBox>
-   </right>
-   <center>
-      <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="669.0" prefWidth="1053.0" BorderPane.alignment="TOP_LEFT">
-         <BorderPane.margin>
-            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-         </BorderPane.margin>
-      </Pane>
    </center>
-   <bottom>
-      <Pane fx:id="chart" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_LEFT" />
-   </bottom>
 </BorderPane>
