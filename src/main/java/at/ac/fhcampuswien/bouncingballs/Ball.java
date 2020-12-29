@@ -13,7 +13,7 @@ public class Ball {
 
     // positional variables and size of balls
     public static int radius = 5;
-    private final static int SPEED = 2;
+    private final static double SPEED = 2.5;
     private double dx;
     private double dy;
 
@@ -21,6 +21,7 @@ public class Ball {
     private State state;
     public static int healtime = 5 * 60; // runs on 60 frames per second at the moment
     private int sickTime = 0;
+
     // public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
     // This could be used to simulate social distancing.
 
@@ -68,8 +69,8 @@ public class Ball {
             if(getState() != State.DEAD || other.getState() != State.DEAD) {
                 bounceX();
                 bounceY();
-                // other.bounceX();
-                //other.bounceY();
+                /* other.bounceX();
+                other.bounceY(); */
             }
         }
     }
@@ -80,8 +81,10 @@ public class Ball {
         if (state == State.INFECTED) {
             sickTime++;
             prob = rand.nextDouble();
+
             if (sickTime >= healtime && prob < 0.8) {
                 setState(State.RECOVERED);
+
             } else if(sickTime >= healtime && prob >= 0.2) {
                 setState(State.DEAD);
             }
@@ -98,7 +101,8 @@ public class Ball {
         return dy * SPEED;
     }
 
-    // if we hit "walls" dx/dy we want do change direction
+    // if we hit walls dx/dy or other balls we need need to change direction
+
     public void bounceX() {
         
         dx *= -1;

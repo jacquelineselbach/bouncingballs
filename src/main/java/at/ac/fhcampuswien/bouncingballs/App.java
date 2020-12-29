@@ -15,9 +15,14 @@ public class App extends Application {
 
             FXMLLoader loader = new FXMLLoader();
             BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
+
             primaryStage.setScene(new Scene(root));
+            root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
+
             primaryStage.setResizable(false);   // This prevents window from resizing
-            primaryStage.setTitle("Bouncing Balls");
+
+            primaryStage.setTitle("Bouncing Balls"); // sets title of the scene
+
             primaryStage.show();
 
         } catch (Exception e) {

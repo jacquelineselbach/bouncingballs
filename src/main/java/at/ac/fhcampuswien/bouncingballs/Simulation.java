@@ -9,7 +9,7 @@ public class Simulation {
     private ArrayList<Ball> balls;
 
     public Simulation(Pane area, int populationSize) {
-        balls = new ArrayList<Ball>();
+        balls = new ArrayList<>();
 
         // create healthy balls in area simulation
 

@@ -52,7 +52,7 @@ public class Position {
 
     public boolean collision(Position other) {
 
-        return distance(other) < 2 * Ball.radius; // if distance is less that two times the radius, collision occured
+        return distance(other) < 2 * Ball.radius; // if distance is less that two times the radius, collision occurred
     }
 
 }
