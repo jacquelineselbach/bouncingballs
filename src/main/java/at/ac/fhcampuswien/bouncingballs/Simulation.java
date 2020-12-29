@@ -31,7 +31,7 @@ public class Simulation {
         for (Ball b : balls) {
             if(b.getState() == State.DEAD)
             {
-                continue;
+                continue; // to stop zombies from walking
             }
            b.move();
         }
