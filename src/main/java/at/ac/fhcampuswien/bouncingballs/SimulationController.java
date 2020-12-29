@@ -1,6 +1,8 @@
 package at.ac.fhcampuswien.bouncingballs;
 
+import com.sun.javafx.scene.layout.region.StrokeBorderPaintConverter;
 import javafx.animation.AnimationTimer;
+import javafx.animation.StrokeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
