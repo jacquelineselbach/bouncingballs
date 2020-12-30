@@ -19,7 +19,7 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state;
-    public static int healtime = 10 * 60; // runs on 60 frames per second at the moment
+    public static int healtime = 15 * 60; // runs on 60 frames per second at the moment
     private int sickTime = 0;
 
     // public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
@@ -66,7 +66,7 @@ public class Ball {
             if (other.getState() == State.INFECTED && state == State.HEALTHY) {
                 setState(State.INFECTED);
             }
-            if(getState() != State.DEAD || other.getState() != State.DEAD) {
+            if(getState() != State.DEAD && other.getState() != State.DEAD) {
                 Random random = new Random();
                 double randomdirection = random.nextDouble();
                 if(randomdirection < 0.5){
@@ -98,24 +98,18 @@ public class Ball {
     }
 
     public double getDx() {
-        
         return dx * SPEED;
     }
-
     public double getDy() {
-        
         return dy * SPEED;
     }
 
     // if we hit walls dx/dy or other balls we need need to change direction
 
     public void bounceX() {
-        
         dx *= -1;
     }
-
     public void bounceY() {
-        
         dy *= -1;
     }
 }
