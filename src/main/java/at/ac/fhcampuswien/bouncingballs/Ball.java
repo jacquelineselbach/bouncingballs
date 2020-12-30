@@ -13,13 +13,13 @@ public class Ball {
 
     // positional variables and size of balls
     public static int radius = 5;
-    private final static double SPEED = 2.5;
+    private final static double SPEED = 1;
     private double dx;
     private double dy;
 
     // variables regarding sickness and health
     private State state;
-    public static int healtime = 5 * 60; // runs on 60 frames per second at the moment
+    public static int healtime = 10 * 60; // runs on 60 frames per second at the moment
     private int sickTime = 0;
 
     // public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
@@ -67,10 +67,16 @@ public class Ball {
                 setState(State.INFECTED);
             }
             if(getState() != State.DEAD || other.getState() != State.DEAD) {
-                bounceX();
-                bounceY();
-                /* other.bounceX();
-                other.bounceY(); */
+                Random random = new Random();
+                double randomdirection = random.nextDouble();
+                if(randomdirection < 0.5){
+                    bounceX();
+                    other.bounceY();
+                }
+                else {
+                    bounceY();
+                    other.bounceX();
+                }
             }
         }
     }
