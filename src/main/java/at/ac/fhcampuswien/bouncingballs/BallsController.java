@@ -48,17 +48,17 @@ public class BallsController {
     }
 
     public void collisionCheck(Ball a, Ball b) {
-        if (distance(a,b) < 5 * Ball.radius){ // if distance is less that 3 times the radius, collision occurred
+        if (distance(a,b) < 2 * Ball.radius){ // if distance is less that 3 times the radius, collision occurred
             if ((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
                     (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) {
                 a.setState(State.INFECTED);
                 b.setState(State.INFECTED);
             }
             if((a.getState() != State.DEAD && b.getState() != State.DEAD) &&
-                    (a.getX() > Ball.radius*4 && a.getX() < areawidth-Ball.radius*4) &&
-                    (b.getX() > Ball.radius*4 && b.getX() < areawidth-Ball.radius*4) &&
-                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-Ball.radius*4) &&
-                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-Ball.radius*4)){
+                    (a.getX() > Ball.radius && a.getX() < areawidth-Ball.radius) &&
+                    (b.getX() > Ball.radius && b.getX() < areawidth-Ball.radius) &&
+                    (a.getY() > Ball.radius && a.getY() < areaheight-Ball.radius) &&
+                    (a.getY() > Ball.radius && a.getY() < areaheight-Ball.radius)){
                     /*
                     as of now workaround to prevent balls from clumping up on the edges after bouncing off each other
                     this prevents them from bouncing off each other near the edges of the pane
