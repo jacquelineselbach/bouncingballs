@@ -2,36 +2,34 @@ package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-
 import java.util.Random;
 
 public class Ball {
     private Circle c; // draw circles on the screens
     private Pane area; // draw area on the screens
-    private Position location;
-    // private Position origin;
 
     // positional variables and size of balls
+    private double x; // position on x-axis
+    private double y; // position on y-axis
     public static int radius = 5;
+
+    // speed and direction variables
     private final static double SPEED = 1;
     private double dx;
     private double dy;
 
     // variables regarding sickness and health
     private State state;
-    public static int healtime = 15 * 60; // runs on 60 frames per second at the moment
-    private int sickTime = 0;
-
-    // public static int distance  = 10000; // should simulate distance from where a ball starts in the simulation > add origin
-    // This could be used to simulate social distancing.
+    public static int healtime = 1000; // measured in frames -> animation updates every frame
+    private int sicktime = 0;
 
     public Ball(State state, Pane area) {
         this.state = state;
-        this.location = new Position(area); // 2 Objects / 2 Positions / starting at the same Value
-        // this.origin = new Position(location.getX(), location.getY());
         this.area = area;
-        this.c = new Circle(radius, state.getColor());
-
+        c = new Circle(radius, state.getColor());
+        x = radius + Math.random() * (area.getWidth() - 2 * radius);
+        y = radius + Math.random() * (area.getHeight() - 2 * radius);
+        // random starting directions measured in radians
         double direction = Math.random() * 2 * Math.PI;
         dx = Math.sin(direction);
         dy = Math.cos(direction);
@@ -49,62 +47,54 @@ public class Ball {
         c.setFill(state.getColor());
     }
 
-    // balls need to move
     public void move() {
-        location.move(this, area);
+        // if x/y get less then 0 Or greater than width/ height we want to bounce the balls back from the wall
+        if (x < Ball.radius || x > (area.getWidth() - Ball.radius)){
+            dx *= -1;
+        }
+        else if (y < Ball.radius || y > (area.getHeight() - Ball.radius)){
+            dy *= -1;
+        }
+        x += dx * SPEED;
+        y += dy * SPEED;
     }
 
     // balls need to be drawn
     public void draw() {
         c.setRadius(radius);
-        c.setTranslateX(location.getX());
-        c.setTranslateY(location.getY());
+        c.setTranslateX(x);
+        c.setTranslateY(y);
     }
 
-    public void collisionCheck(Ball other) {
-        if (location.collision(other.location)) {
-            if (other.getState() == State.INFECTED && state == State.HEALTHY) {
-                setState(State.INFECTED);
-            }
-            if(getState() != State.DEAD && other.getState() != State.DEAD) {
-                Random random = new Random();
-                double randomdirection = random.nextDouble();
-                if(randomdirection < 0.5){
-                    bounceX();
-                    other.bounceY();
-                }
-                else {
-                    bounceY();
-                    other.bounceX();
-                }
-            }
-        }
-    }
-
-    public void healing() {
+    public void outcome() {
         Random rand = new Random();
-        double prob;
+        double deathrate;
         if (state == State.INFECTED) {
-            sickTime++;
-            prob = rand.nextDouble();
+            sicktime++;
+            deathrate = rand.nextDouble();
 
-            if (sickTime >= healtime && prob < 0.8) {
+            if (sicktime >= healtime && deathrate < 0.8) {
                 setState(State.RECOVERED);
 
-            } else if(sickTime >= healtime && prob >= 0.2) {
+            } else if(sicktime >= healtime && deathrate >= 0.2) {
                 setState(State.DEAD);
             }
         }
     }
 
-    public double getDx() {
-        return dx * SPEED;
+    public double getX() {
+        return x;
     }
-    public double getDy() {
-        return dy * SPEED;
+    public double getY() {
+        return y;
     }
 
-    // if we hit walls dx/dy or other balls we need need to change direction
+    public double getDx() {
+        return Math.abs(dx);
+    }
+    public double getDy() {
+        return Math.abs(dy);
+    }
 
     public void bounceX() {
         dx *= -1;

@@ -1,8 +1,6 @@
 package at.ac.fhcampuswien.bouncingballs;
 
-import com.sun.javafx.scene.layout.region.StrokeBorderPaintConverter;
 import javafx.animation.AnimationTimer;
-import javafx.animation.StrokeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -14,73 +12,103 @@ import javafx.scene.shape.Rectangle;
 import java.util.EnumMap;
 
 public class SimulationController {
-
-    Simulation simulation;
-
-    private Movement clock;
-
-    private class Movement extends AnimationTimer {
-
-
-        @Override
-        public void handle(long now) {
-
-            step();
-            instant();
-        }
-
-        private int instants = 0;
+    private class BBAnimationTimer extends AnimationTimer {
+        private int instants = 0; // instants are used for charts
 
         public int getInstants() {
             return instants;
         }
-
         public void resetInstants() {
             instants = 0; // resets the instants / timesteps to zero after START/RESET
         }
-
-        public void instant(){
+        public void incrementInstants(){
             instants++;
+        }
+        @Override
+        public void handle(long now) {
+            step();
+            incrementInstants();
         }
     }
 
     @FXML
-    Pane area;
+    private Pane area;
+    @FXML
+    private Button resetButton;
+    @FXML
+    private Button startButton;
+    @FXML
+    private Button stopButton;
+    @FXML
+    private Button stepButton;
+    @FXML
+    private Pane chart;
+    @FXML
+    private Pane histogram;
+
+    private BallsController ballsController;
+    private BBAnimationTimer timer;
+    private final int populationSize = 300;
+    boolean resetswitch = true;
+
+    private EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
+    // enum map is mapping from state to rectangle for creating the charts
+    // finds how much balls are infected, healthy, etc.. / pot = population over time
 
     @FXML
-    Button startButton;
-
-    @FXML
-    Button stopButton;
-
-    @FXML
-    Button stepButton;
-
-    @FXML
-    Pane chart;
-
-    @FXML
-    Pane histogram;
-
-    @FXML
-    public void  initialize() {
-
-        clock = new Movement();
+    public void initialize() {
+        timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
+        disableButtons(true,false, true, true);
+    }
+
+    @FXML
+    public void step() { // single time steps
+        ballsController.moveBalls();
+        ballsController.resolveInfections();
+        ballsController.resolveCollisions();
+        ballsController.draw();
+        drawChart(); // as every time step goes the chart will be drawn
+    }
+
+    @FXML
+    public void start() {
+        if(ballsController == null || resetswitch) {
+            ballsController = new BallsController(area, populationSize); // initialize new Simulation
+            setupCharts();
+            drawChart();
+        }
+        timer.start();
+        resetswitch = false;
+        disableButtons(false,true, false, true);
     }
 
     @FXML
     public void reset() {
-
         stop();
-        clock.resetInstants();
+        timer.resetInstants(); // resets instants for chart generation before reset
         area.getChildren().clear(); // clear scene before reset
         histogram.getChildren().clear(); // clear scene for histogram
         chart.getChildren().clear(); // clear scene for chart
-        simulation = new Simulation(area, 300);
+        resetswitch = true;
+        disableButtons(true,false, true, true);
+    }
 
+    @FXML
+    public void stop() {
+        timer.stop();
+        disableButtons(false, false, true, false);
+    }
+
+    public void disableButtons(boolean reset, boolean start, boolean stop, boolean step) {
+        resetButton.setDisable(reset);
+        startButton.setDisable(start);
+        stopButton.setDisable(stop);
+        stepButton.setDisable(step);
+    }
+
+    public void setupCharts(){
         int offset = 0;
-
         for (State s : State.values()) { // fill new rectangles after hitting reset/start
             Rectangle r = new Rectangle(60,0, s.getColor()); // draws rectangle in color of each state for histogram
             r.setTranslateX(offset); // to draw the rectangles next to each other
@@ -88,50 +116,15 @@ public class SimulationController {
             pot.put(s, r); // population over time: put in s state and r rectangle
             histogram.getChildren().add(r); // showing rectangles on the pane
         }
-
-        drawChart();
     }
-
-    @FXML
-    public void start() {
-        clock.start();
-        disableButtons(true, false, true);
-    }
-    @FXML
-
-    public void stop() {
-        clock.stop();
-        disableButtons(false, true, false);
-    }
-    @FXML
-    public void step() { // single time steps
-        simulation.move();
-        simulation.healing();
-        simulation.resolveCollisions();
-        simulation.draw();
-        drawChart(); // as every time step goes the chart will be drawn
-        clock.instant();
-    }
-
-
-    public void disableButtons(boolean start, boolean stop, boolean step) {
-        startButton.setDisable(start);
-        stopButton.setDisable(stop);
-        stepButton.setDisable(step);
-    }
-
-
-
-    EnumMap<State, Rectangle> pot = new EnumMap<>(State.class); // enum map is mapping from state to rectangle - finds how much balls are infected, healthy, etc.. / pot = population over time
 
     // creates a map between states and integers and builds up the histogram in terms of numbers
     public void drawChart() {
         EnumMap<State, Integer> currentPopulation = new EnumMap<>(State.class); // every timestep we are going to calculate in which state balls are
-        for (Ball b : simulation.getBalls()) {
+        for (Ball b : ballsController.getBalls()) {
             if(!currentPopulation.containsKey(b.getState())) {
                 currentPopulation.put(b.getState(), 0);
             }
-
             currentPopulation.put(b.getState(), 1 + currentPopulation.get(b.getState()));
         }
 
@@ -139,20 +132,17 @@ public class SimulationController {
         for (State state : pot.keySet()) {
             if (currentPopulation.containsKey(state)) { // if there are 50 balls infected, the height is going to be 50
                 pot.get(state).setHeight(currentPopulation.get(state));
-                pot.get(state).setTranslateY( 300 - currentPopulation.get(state));
+                pot.get(state).setTranslateY(populationSize - currentPopulation.get(state));
 
                 // line chart
                 Circle c = new Circle(1,state.getColor());
-                c.setTranslateX(clock.getInstants() / 5.0);
-                c.setTranslateY(300 - currentPopulation.get(state));
+                c.setTranslateX(timer.getInstants() / 5.0);
+                c.setTranslateY(populationSize - currentPopulation.get(state));
                 chart.getChildren().add(c);
             }
         }
 
-
-
         if (!currentPopulation.containsKey(State.INFECTED))
             stop(); // stops the animation when there is no more infected ball
-
     }
 }
