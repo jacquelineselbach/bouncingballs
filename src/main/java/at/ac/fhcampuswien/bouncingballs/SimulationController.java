@@ -48,8 +48,24 @@ public class SimulationController {
 
     private BallsController ballsController;
     private BBAnimationTimer timer;
-    private final int populationSize = 300;
-    boolean resetswitch = true;
+    private boolean resetswitch = true;
+
+    private final static int populationSize = 300;
+    private final static double infectionrate = 90.;
+    private final static double deathrate = 10.;
+    private final static boolean socialdistancing = false;
+    private final static boolean lockdown = false;
+
+    public static double getDeathrate(){
+        return deathrate;
+    }
+    public static double getInfectionrate(){
+        if(socialdistancing){
+            return infectionrate*0.75;
+        }else{
+            return infectionrate;
+        }
+    }
 
     private EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
     // enum map is mapping from state to rectangle for creating the charts

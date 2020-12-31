@@ -2,11 +2,14 @@ package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.layout.Pane;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BallsController {
     private ArrayList<Ball> balls;
-    double areaheight;
-    double areawidth;
+    private static double areaheight;
+    private static double areawidth;
+    private final static double infectionrate = SimulationController.getInfectionrate();
+    private final static double deathrate = SimulationController.getDeathrate();
 
     public BallsController(Pane area, int populationSize) {
         areaheight = area.getHeight();
@@ -17,7 +20,6 @@ public class BallsController {
         for (int i = 0; i < populationSize-1; i++) {
             balls.add(new Ball(State.HEALTHY, area));
         }
-
         // add single infected ball in area simulation
         balls.add(new Ball(State.INFECTED, area));
         draw();
@@ -31,6 +33,10 @@ public class BallsController {
 
     public ArrayList<Ball> getBalls() {
         return balls;
+    }
+
+    public double getInfectionrate(){
+        return this.infectionrate;
     }
 
     public void moveBalls() {
@@ -48,9 +54,12 @@ public class BallsController {
     }
 
     public void collisionCheck(Ball a, Ball b) {
-        if (distance(a,b) < 2 * Ball.radius){ // if distance is less that 3 times the radius, collision occurred
-            if ((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
-                    (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) {
+        Random random = new Random();
+        double rnd = random.nextDouble();
+        if (distance(a,b) < 2 * Ball.radius){ // if distance is less that 2 times the radius, collision occurred
+            if (((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
+                    (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) &&
+                    rnd <= (getInfectionrate()/100)){
                 a.setState(State.INFECTED);
                 b.setState(State.INFECTED);
             }
@@ -60,9 +69,10 @@ public class BallsController {
                     (a.getY() > Ball.radius && a.getY() < areaheight-Ball.radius) &&
                     (a.getY() > Ball.radius && a.getY() < areaheight-Ball.radius)){
                     /*
-                    as of now workaround to prevent balls from clumping up on the edges after bouncing off each other
-                    this prevents them from bouncing off each other near the edges of the pane
-                     */
+                    this prevents dead balls from bouncing or getting bounced of and it prevents
+                     balls from bouncing too near the edge of the pane since they otherwise could
+                    bounce out of bounds
+                    */
                 if(a.getDx() >= a.getDy() && b.getDx() >= b.getDy()){
                     a.bounceX();
                     b.bounceX();
@@ -103,7 +113,7 @@ public class BallsController {
 
     public void resolveInfections() {
         for(Ball b : balls) {
-            b.outcome();
+            b.outcome(deathrate);
         }
     }
 }

@@ -5,6 +5,7 @@ import javafx.scene.shape.Circle;
 import java.util.Random;
 
 public class Ball {
+    Random random = new Random();
     private Circle c; // draw circles on the screens
     private Pane area; // draw area on the screens
 
@@ -20,17 +21,17 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state;
-    public static int healtime = 1000; // measured in frames -> animation updates every frame
+    public final static int healtime = 1000; // measured in frames -> animation updates every frame
     private int sicktime = 0;
 
     public Ball(State state, Pane area) {
         this.state = state;
         this.area = area;
         c = new Circle(radius, state.getColor());
-        x = radius + Math.random() * (area.getWidth() - 2 * radius);
-        y = radius + Math.random() * (area.getHeight() - 2 * radius);
+        x = radius + random.nextDouble() * (area.getWidth() - 2 * radius);
+        y = radius + random.nextDouble() * (area.getHeight() - 2 * radius);
         // random starting directions measured in radians
-        double direction = Math.random() * 2 * Math.PI;
+        double direction = random.nextDouble() * 2 * Math.PI;
         dx = Math.sin(direction);
         dy = Math.cos(direction);
 
@@ -66,17 +67,16 @@ public class Ball {
         c.setTranslateY(y);
     }
 
-    public void outcome() {
-        Random rand = new Random();
-        double deathrate;
+    public void outcome(double deathrate) {
+        double probability;
         if (state == State.INFECTED) {
             sicktime++;
-            deathrate = rand.nextDouble();
+            probability = random.nextDouble();
 
-            if (sicktime >= healtime && deathrate < 0.8) {
+            if (sicktime >= healtime && probability > deathrate/100) {
                 setState(State.RECOVERED);
 
-            } else if(sicktime >= healtime && deathrate >= 0.2) {
+            } else if(sicktime >= healtime && probability <= deathrate/100) {
                 setState(State.DEAD);
             }
         }
