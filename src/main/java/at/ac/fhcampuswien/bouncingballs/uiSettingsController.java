@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -19,13 +19,8 @@ public class uiSettingsController implements Initializable {
     // EveryOption gets a boolean Value
     private static boolean optionNormal, optionSocialDist, optionLockdown;
 
-    //Constructor, if an Object's generated
- /*
-    uiSettingsController(){
-        optionNormal = true;
-        optionSocialDist = false;
-        optionLockdown = false;
-    }*/
+    // Sim stage for IF Command
+    private Stage simulationStage;
 
     @FXML
     private RadioButton rbNormal, rbSocialDist, rbLockdown;
@@ -78,7 +73,24 @@ public class uiSettingsController implements Initializable {
 
     // Start Button Method
     public void letsStart(ActionEvent actionEvent) {
+                if(simulationStage != null)
+                {
+                    simulationStage.close();
+                }
+                simulationStage = new Stage();
+                try {
+                FXMLLoader loader = new FXMLLoader();
+                BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
+                simulationStage.setScene(new Scene(root));
+                root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
+                simulationStage.setResizable(false);   // This prevents window from resizing
+                simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
+                simulationStage.show();
 
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.exit(1);
+            }
     }
     //Set Properties to Buttons and Options
     private void setProperties(boolean normal, boolean distance, boolean lockdown)
@@ -92,21 +104,20 @@ public class uiSettingsController implements Initializable {
     }
 
     // Getter
-    static boolean getoptNormal()
+   protected static boolean getoptNormal()
     {
         return optionNormal;
     }
 
-    static boolean getoptSocialDist()
+   protected static boolean getoptSocialDist()
     {
         return optionSocialDist;
     }
 
-    static boolean getoptLockdown()
+   protected static boolean getoptLockdown()
     {
         return optionLockdown;
     }
-
 
     // Reset Buttons and Options
     private void standardValues(){
@@ -114,10 +125,9 @@ public class uiSettingsController implements Initializable {
         debugOutput(optionNormal,optionSocialDist,optionLockdown);
     }
     // A lil Helper, if the Values are setted correctly.
-    void debugOutput(boolean normal, boolean socialDist, boolean lockdown)
+    private void debugOutput(boolean normal, boolean socialDist, boolean lockdown)
     {
         System.out.println("DEBUG: normal: " + normal + " Social: " + socialDist + " Lock: " + lockdown);
     }
-
 
 }
