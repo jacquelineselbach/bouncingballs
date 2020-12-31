@@ -34,6 +34,19 @@ public class uiInfoController {
     }
 
     public void startConf(ActionEvent actionEvent) {
+        Stage backStage = (Stage)startButton.getScene().getWindow();
+        try {
 
+            Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
+            backStage.setScene(new Scene(root));
+
+            backStage.setResizable(false);   // This prevents window from resizing
+            backStage.setTitle("Bouncing Balls - Setup your Simulation"); // sets title of the scene
+            backStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 }

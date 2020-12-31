@@ -24,7 +24,20 @@ public class uiStartController {
 
     @FXML
     protected void startConf(ActionEvent actionEvent) {
-        Stage stage = (Stage)startButton.getScene().getWindow();
+        Stage startStage = (Stage)startButton.getScene().getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
+            Scene scene = new Scene(root);
+
+            startStage.setTitle("Bouncing Balls - Setup your Simulation");
+            startStage.setResizable(false);
+            startStage.setScene(scene);
+
+            startStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*
         try {
 
             //   Parent root = loader.load(getClass().getResource("/uiStart.fxml"));
@@ -43,7 +56,7 @@ public class uiStartController {
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
-        }
+        }*/
 
     }
 
