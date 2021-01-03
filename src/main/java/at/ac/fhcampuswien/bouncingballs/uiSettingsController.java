@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class uiSettingsController implements Initializable {
 
     // EveryOption gets a boolean Value
-    private static boolean optionNormal, optionSocialDist, optionLockdown;
+    private static boolean optionNormal = false, optionSocialDist = false, optionLockdown =  false;
 
     // Sim stage for IF Command
     private Stage simulationStage;
@@ -103,7 +103,9 @@ public class uiSettingsController implements Initializable {
         optionLockdown = lockdown;
     }
 
-    // Getter
+    ///////////////////////////////////////////////////////
+    // Getter! PLEASE USE THEM FOR YOUR CLASS!!!!!!
+    ///////////////////////////////////////////////////////
    protected static boolean getoptNormal()
     {
         return optionNormal;
