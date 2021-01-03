@@ -74,7 +74,7 @@ public class SimulationController {
 
     @FXML
     public void initialize() {
-        socialdistancing = true; // uiSettingsController.getoptSocialDist();
+        socialdistancing = uiSettingsController.getoptSocialDist();
         lockdown = uiSettingsController.getoptLockdown();
         timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
