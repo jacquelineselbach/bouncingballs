@@ -25,7 +25,8 @@ public class uiStartController {
     @FXML
     protected void startConf(ActionEvent actionEvent) {
         Stage startStage = (Stage)startButton.getScene().getWindow();
-        try {
+        ((Stage)startButton.getScene().getWindow()).close();
+       try {
             Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
             Scene scene = new Scene(root);
 
@@ -43,6 +44,7 @@ public class uiStartController {
     @FXML
     protected void info(ActionEvent actionEvent) {
         Stage infoStage = (Stage) infoButton.getScene().getWindow();
+        ((Stage)infoButton.getScene().getWindow()).close();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/uiInfo.fxml"));
             Scene scene = new Scene(root);

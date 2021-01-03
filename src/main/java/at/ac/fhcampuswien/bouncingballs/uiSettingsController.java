@@ -51,6 +51,7 @@ public class uiSettingsController implements Initializable {
     // Back Button Method
     public void goBack(ActionEvent actionEvent) {
         Stage backStage = (Stage)backButton.getScene().getWindow();
+        ((Stage) backButton.getScene().getWindow()).close();
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));

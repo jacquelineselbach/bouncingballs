@@ -18,6 +18,7 @@ public class uiInfoController {
     @FXML
     public void back(ActionEvent actionEvent) {
         Stage backStage = (Stage)backButton.getScene().getWindow();
+        ((Stage)backButton.getScene().getWindow()).close();
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));
@@ -35,6 +36,7 @@ public class uiInfoController {
 
     public void startConf(ActionEvent actionEvent) {
         Stage backStage = (Stage)startButton.getScene().getWindow();
+        ((Stage)startButton.getScene().getWindow()).close();
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
