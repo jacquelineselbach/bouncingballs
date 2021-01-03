@@ -82,24 +82,24 @@ public class Ball {
         }
     }
 
-    public double getX() {
+    public double getX(){
         return x;
     }
-    public double getY() {
+    public double getY(){
         return y;
     }
 
-    public double getAbsDx() {
+    public double getAbsDx(){
         return Math.abs(dx);
     }
-    public double getAbsDy() {
+    public double getAbsDy(){
         return Math.abs(dy);
     }
 
-    public void bounceX() {
+    public void bounceX(){
         dx *= -1;
     }
-    public void bounceY() {
+    public void bounceY(){
         dy *= -1;
     }
 }

@@ -53,8 +53,8 @@ public class SimulationController {
     private final static int populationSize = 300;
     private final static double infectionrate = 90.;
     private final static double deathrate = 10.;
-    private final static boolean socialdistancing = uiSettingsController.getoptSocialDist();
-    private final static boolean lockdown = uiSettingsController.getoptLockdown();
+    private static boolean socialdistancing;
+    private static boolean lockdown;
 
     public static double getDeathrate(){
         return deathrate;
@@ -62,7 +62,7 @@ public class SimulationController {
 
     public static double getInfectionrate(){
         if(socialdistancing){
-            return infectionrate * 0.75;
+            return infectionrate * 0.5;
         }else{
             return infectionrate;
         }
@@ -74,6 +74,8 @@ public class SimulationController {
 
     @FXML
     public void initialize() {
+        socialdistancing = true; // uiSettingsController.getoptSocialDist();
+        lockdown = uiSettingsController.getoptLockdown();
         timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
         disableButtons(true,false, true, true);
@@ -97,6 +99,7 @@ public class SimulationController {
         }
         timer.start();
         resetswitch = false;
+        System.out.println("Socialdistancing: " + socialdistancing + " / Lockdown: " + lockdown + " / Infectionsrate:  " + getInfectionrate());
         disableButtons(false,true, false, true);
     }
 
