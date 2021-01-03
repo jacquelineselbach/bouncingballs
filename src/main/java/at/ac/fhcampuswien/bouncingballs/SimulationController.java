@@ -53,15 +53,16 @@ public class SimulationController {
     private final static int populationSize = 300;
     private final static double infectionrate = 90.;
     private final static double deathrate = 10.;
-    private final static boolean socialdistancing = false;
-    private final static boolean lockdown = false;
+    private final static boolean socialdistancing = uiSettingsController.getoptSocialDist();
+    private final static boolean lockdown = uiSettingsController.getoptLockdown();
 
     public static double getDeathrate(){
         return deathrate;
     }
+
     public static double getInfectionrate(){
         if(socialdistancing){
-            return infectionrate*0.75;
+            return infectionrate * 0.75;
         }else{
             return infectionrate;
         }

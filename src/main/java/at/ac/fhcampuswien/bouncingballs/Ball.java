@@ -89,10 +89,10 @@ public class Ball {
         return y;
     }
 
-    public double getDx() {
+    public double getAbsDx() {
         return Math.abs(dx);
     }
-    public double getDy() {
+    public double getAbsDy() {
         return Math.abs(dy);
     }
 

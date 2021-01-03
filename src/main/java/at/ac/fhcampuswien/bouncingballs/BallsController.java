@@ -35,10 +35,6 @@ public class BallsController {
         return balls;
     }
 
-    public double getInfectionrate(){
-        return this.infectionrate;
-    }
-
     public void moveBalls() {
         for (Ball b : balls) {
             if(b.getState() == State.DEAD){
@@ -59,7 +55,7 @@ public class BallsController {
         if (distance(a,b) < 2 * Ball.radius){ // if distance is less that 2 times the radius, collision occurred
             if (((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
                     (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) &&
-                    rnd <= (getInfectionrate()/100)){
+                    rnd <= (infectionrate/100)){
                 a.setState(State.INFECTED);
                 b.setState(State.INFECTED);
             }
@@ -73,25 +69,25 @@ public class BallsController {
                      balls from bouncing too near the edge of the pane since they otherwise could
                     bounce out of bounds
                     */
-                if(a.getDx() >= a.getDy() && b.getDx() >= b.getDy()){
+                if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceX();
                     b.bounceX();
                     a.move();
                     b.move();
                 }
-                if(a.getDx() < a.getDy() && b.getDx() < b.getDy()){
+                if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){
                     a.bounceY();
                     b.bounceY();
                     a.move();
                     b.move();
                 }
-                if(a.getDx() < a.getDy() && b.getDx() >= b.getDy()){
+                if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceY();
                     b.bounceX();
                     a.move();
                     b.move();
                 }
-                if(a.getDx() >= a.getDy() && b.getDx() < b.getDy()){
+                if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){
                     a.bounceX();
                     b.bounceY();
                     a.move();

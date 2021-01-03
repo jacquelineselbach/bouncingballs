@@ -93,8 +93,7 @@ public class uiSettingsController implements Initializable {
             }
     }
     //Set Properties to Buttons and Options
-    private void setProperties(boolean normal, boolean distance, boolean lockdown)
-    {
+    private void setProperties(boolean normal, boolean distance, boolean lockdown){
         rbNormal.setSelected(normal);
         optionNormal = normal;
         rbSocialDist.setSelected(distance);
@@ -106,18 +105,15 @@ public class uiSettingsController implements Initializable {
     ///////////////////////////////////////////////////////
     // Getter! PLEASE USE THEM FOR YOUR CLASS!!!!!!
     ///////////////////////////////////////////////////////
-   protected static boolean getoptNormal()
-    {
+   protected static boolean getoptNormal(){
         return optionNormal;
-    }
+}
 
-   protected static boolean getoptSocialDist()
-    {
+    protected static boolean getoptSocialDist(){
         return optionSocialDist;
     }
 
-   protected static boolean getoptLockdown()
-    {
+    protected static boolean getoptLockdown(){
         return optionLockdown;
     }
 
@@ -127,8 +123,7 @@ public class uiSettingsController implements Initializable {
         debugOutput(optionNormal,optionSocialDist,optionLockdown);
     }
     // A lil Helper, if the Values are setted correctly.
-    private void debugOutput(boolean normal, boolean socialDist, boolean lockdown)
-    {
+    private void debugOutput(boolean normal, boolean socialDist, boolean lockdown){
         System.out.println("DEBUG: normal: " + normal + " Social: " + socialDist + " Lock: " + lockdown);
     }
 
