@@ -8,9 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +23,8 @@ public class uiSettingsController implements Initializable {
 
     // Sim stage for IF Command
     private Stage simulationStage;
+
+    private SimulationController sc;
 
     @FXML
     private RadioButton rbNormal, rbSocialDist, rbLockdown;
@@ -74,25 +78,38 @@ public class uiSettingsController implements Initializable {
 
     // Start Button Method
     public void letsStart(ActionEvent actionEvent) {
-                if(simulationStage != null)
-                {
-                    simulationStage.close();
-                }
-                simulationStage = new Stage();
-                try {
-                FXMLLoader loader = new FXMLLoader();
-                BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
-                simulationStage.setScene(new Scene(root));
-                root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
-                simulationStage.setResizable(false);   // This prevents window from resizing
-                simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
-                simulationStage.show();
+        if(simulationStage != null)
+        {
+            simulationStage.close();
+        }
 
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.exit(1);
-            }
+        simulationStage = new Stage();
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
+            simulationStage.setScene(new Scene(root));
+            root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
+            simulationStage.setResizable(false);   // This prevents window from resizing
+            simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
+
+            // -- Hami ist working on this section PLEASE DON'T DELETE FOLLOWING COMMENTS !!!
+
+            //simulationStage.getScene().getWindow().startButton.fire();
+            //(Button) simulationStage.getScene().lookup("startbutton").setOnMouseClicked(event -> #start);
+            //simulationStage.getScene().lookup("startButton").;
+
+            // -- Hami's section ends here
+
+            simulationStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
+
+
     //Set Properties to Buttons and Options
     private void setProperties(boolean normal, boolean distance, boolean lockdown){
         rbNormal.setSelected(normal);
