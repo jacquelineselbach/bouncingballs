@@ -23,6 +23,9 @@ public class uiStartController {
     private Button infoButton;
 
     @FXML
+    private Button aboutusButton;
+
+    @FXML
     protected void startConf(ActionEvent actionEvent) {
         Stage startStage = (Stage)startButton.getScene().getWindow();
         ((Stage)startButton.getScene().getWindow()).close();
@@ -61,5 +64,22 @@ public class uiStartController {
 
     public void exit(ActionEvent actionEvent) {
     System.exit(0);
+    }
+
+    public void aboutus(ActionEvent actionEvent) {
+        Stage aboutusStage = (Stage) aboutusButton.getScene().getWindow();
+        ((Stage)aboutusButton.getScene().getWindow()).close();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/uiAboutUs.fxml"));
+            Scene scene = new Scene(root);
+
+            aboutusStage.setTitle("Bouncing Balls - Info");
+            aboutusStage.setResizable(false);
+            aboutusStage.setScene(scene);
+
+            aboutusStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
