@@ -78,18 +78,19 @@ public class uiSettingsController implements Initializable {
 
     // Start Button Method
     public void letsStart(ActionEvent actionEvent) {
-        if(simulationStage != null)
+       /* if(simulationStage != null)
         {
             simulationStage.close();
-        }
-
+        }*/
+        // Closes Settings Window
+        ((Stage)startButton.getScene().getWindow()).close();
         simulationStage = new Stage();
 
         try {
             FXMLLoader loader = new FXMLLoader();
             BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
             simulationStage.setScene(new Scene(root));
-            root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
+          //  root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
             simulationStage.setResizable(false);   // This prevents window from resizing
             simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
 

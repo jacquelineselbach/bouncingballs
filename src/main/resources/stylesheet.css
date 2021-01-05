@@ -1,3 +1,54 @@
+@font-face {
+    font-family: 'Aktiv Grotesk Trial Medium Italic';
+    src: url('fonts/Mdlt.ttf');
+}
+
+@font-face {
+    font-family: 'Aktiv Grotesk Trial Regular';
+    src: url('fonts/Rg.ttf');
+}
+
+@font-face {
+    font-family: 'Aktiv Grotesk Trial Bold';
+    src: url('fonts/Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Aktiv Grotesk Trial Bold Italic';
+    src: url('fonts/BoldItalic.ttf');
+}
+
+.settingsTitle {
+    -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
+    -fx-font-size: 45.0;
+}
+
+.titleButtons {
+        -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
+        -fx-font-size: 24.0;
+    }
+
+}
+.titleScreen {
+    -fx-font-family: "Aktiv Grotesk Trial Bold";
+    -fx-font-size: 48.0;
+}
+
+.infoaboutTitles{
+    -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
+    -fx-font-size: 36.0;
+
+}
+
+.rbButtonsText{
+    -fx-font-family: "Aktiv Grotesk Trial Regular";
+    -fx-font-size: 25.0;
+
+}
+
+
+
 .background {
+
     -fx-background-color: #FFFFFF;
 }
