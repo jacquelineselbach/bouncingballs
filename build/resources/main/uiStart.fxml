@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiStartController">
+   <children>
+      <Text layoutX="69.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bouncing Balls" textAlignment="CENTER" wrappingWidth="661.7294921875">
+         <font>
+            <Font name="System Bold Italic" size="75.0" />
+         </font>
+      </Text>
+      <Button fx:id="startButton" defaultButton="true" layoutX="286.0" layoutY="172.0" mnemonicParsing="false" onAction="#startConf" prefHeight="92.0" prefWidth="251.0" text="Start">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="infoButton" layoutX="286.0" layoutY="285.0" mnemonicParsing="false" onAction="#info" prefHeight="92.0" prefWidth="251.0" text="Info">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Button fx:id="aboutusButton" layoutX="731.0" layoutY="549.0" mnemonicParsing="false" onAction="#aboutus" prefHeight="25.0" prefWidth="34.0">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="https://img.icons8.com/flat_round/2x/info.png"/>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button id="exit" layoutX="286.0" layoutY="397.0" mnemonicParsing="false" onAction="#exit" prefHeight="92.0" prefWidth="251.0" text="Exit">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Text layoutX="491.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright 2020/2021 - GuruMeditationClan" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiSettingsController">
+    <children>
+        <Text layoutX="44.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup your Balls!">
+            <font>
+                <Font name="System Bold Italic" size="45.0" />
+            </font>
+        </Text>
+        <Text layoutX="44.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Simulation Properties:">
+            <font>
+                <Font size="35.0" />
+            </font>
+        </Text>
+        <VBox layoutX="44.0" layoutY="217.0" prefHeight="190.0" prefWidth="712.0" spacing="25">
+            <children>
+                <RadioButton fx:id="rbNormal" mnemonicParsing="false" onAction="#modeNormal" text="Normal">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="rbSocialDist" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modeSocialDist" text="Social Distancing">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="rbLockdown" mnemonicParsing="false" onAction="#modeLockdown" text="Lockdown">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </RadioButton>
+            </children>
+        </VBox>
+      <Button fx:id="backButton" layoutX="69.0" layoutY="478.0" mnemonicParsing="false" onAction="#goBack" prefHeight="63.0" prefWidth="154.0" text="Back to Main">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="start" layoutX="564.0" layoutY="478.0" lineSpacing="5.0" mnemonicParsing="false" onAction="#letsStart" prefHeight="63.0" prefWidth="154.0" text="Start" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font></Button>
+      <Button fx:id="reset" layoutX="323.0" layoutY="478.0" mnemonicParsing="false" onAction="#reset" prefHeight="63.0" prefWidth="154.0" text="Reset">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
