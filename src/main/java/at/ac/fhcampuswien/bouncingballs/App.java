@@ -12,10 +12,11 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader();
+//            BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
 
             Parent root = loader.load(getClass().getResource("/uiStart.fxml"));
             primaryStage.setScene(new Scene(root));
-        //    root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
+            //    root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
 
             primaryStage.setResizable(false);   // This prevents window from resizing
             primaryStage.setTitle("Bouncing Balls"); // sets title of the scene
@@ -25,25 +26,6 @@ public class App extends Application {
             e.printStackTrace();
             System.exit(1);
         }
-    /*
-      // Starts just the Simulation!
-      try {
-            FXMLLoader loader = new FXMLLoader();
-            BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
-            primaryStage.setScene(new Scene(root));
-            root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
-
-            primaryStage.setResizable(false);   // This prevents window from resizing
-            primaryStage.setTitle("Bouncing Balls"); // sets title of the scene
-            primaryStage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    } */
-
-
     }
 
     public static void main (String[]args) {
