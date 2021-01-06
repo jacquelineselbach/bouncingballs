@@ -100,7 +100,8 @@ public class SimulationController {
         }
         timer.start();
         resetswitch = false;
-        System.out.println("Socialdistancing: " + socialdistancing + " / Lockdown: " + lockdown + " / Infectionsrate:  " + getInfectionrate());
+        System.out.println("Socialdistancing: " + socialdistancing + " / Lockdown: " + lockdown +
+                " / Infectionsrate:  " + getInfectionrate() + " / Deathrate: " + getDeathrate());
         disableButtons(false,true, false, true);
     }
 
