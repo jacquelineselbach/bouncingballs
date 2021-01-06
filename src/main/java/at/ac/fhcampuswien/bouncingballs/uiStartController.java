@@ -33,7 +33,7 @@ public class uiStartController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
             Scene scene = new Scene(root);
 
-            startStage.setTitle("Bouncing Balls - Setup your Simulation");
+            startStage.setTitle("Bouncing Balls - SET-UP YOUR BALLS!");
             startStage.setResizable(false);
             startStage.setScene(scene);
 
@@ -52,7 +52,7 @@ public class uiStartController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiInfo.fxml"));
             Scene scene = new Scene(root);
 
-            infoStage.setTitle("Bouncing Balls - Info");
+            infoStage.setTitle("Bouncing Balls - INFORMATION");
             infoStage.setResizable(false);
             infoStage.setScene(scene);
 
@@ -73,7 +73,7 @@ public class uiStartController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiAboutUs.fxml"));
             Scene scene = new Scene(root);
 
-            aboutusStage.setTitle("Bouncing Balls - Info");
+            aboutusStage.setTitle("Bouncing Balls - ABOUT US");
             aboutusStage.setResizable(false);
             aboutusStage.setScene(scene);
 

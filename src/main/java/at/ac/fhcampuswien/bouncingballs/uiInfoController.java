@@ -43,7 +43,7 @@ public class uiInfoController {
             backStage.setScene(new Scene(root));
 
             backStage.setResizable(false);   // This prevents window from resizing
-            backStage.setTitle("Bouncing Balls - Setup your Simulation"); // sets title of the scene
+            backStage.setTitle("Bouncing Balls - SET-UP YOUR BALLS!"); // sets title of the scene
             backStage.show();
 
         } catch (Exception e) {
