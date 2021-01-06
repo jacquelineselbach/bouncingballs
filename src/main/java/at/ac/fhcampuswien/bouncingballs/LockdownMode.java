@@ -1,5 +1,13 @@
 package at.ac.fhcampuswien.bouncingballs;
 
+
+// ---------------------
+
+// THIS CLASS IS NOT IN USE - TO BE DELETED BEFORE THE OFFICIAL SUBMISSION !!!!!!
+// also all the references (which are under comment rn as well)
+
+// ---------------------
+
 public class LockdownMode {
 
     public static void lockdown (){
