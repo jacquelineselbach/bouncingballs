@@ -79,6 +79,7 @@ public class SimulationController {
         timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
         disableButtons(true,false, true, true);
+        lockdown();
     }
 
     @FXML
@@ -164,5 +165,16 @@ public class SimulationController {
 
         if (!currentPopulation.containsKey(State.INFECTED))
             stop(); // stops the animation when there is no more infected ball
+    }
+
+    // activates LockdownMode
+    private void lockdown(){ //activates lockdownmode DAVE
+        if (lockdown == true){
+            LockdownMode.lockdown();
+        }
+        else {
+            Ball.setSPEED(1);
+        }
+
     }
 }

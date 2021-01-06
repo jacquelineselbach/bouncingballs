@@ -15,7 +15,13 @@ public class Ball {
     public static int radius = 5;
 
     // speed and direction variables
-    private final static double SPEED = 1;
+    private static double SPEED = 1;
+    public static double getSPEED() { // speed setter und getter für Lockdownmode
+        return SPEED;
+    } //getter and setter for LockdownMode
+    public static void setSPEED (double speed){
+        SPEED = speed;
+    }
     private double dx;
     private double dy;
 
