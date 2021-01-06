@@ -6,8 +6,8 @@ public class LockdownMode {
 
 
         uiSettingsController.getoptLockdown();
-        Ball.getSPEED();
-        double  ballspeed = Ball.getSPEED();
+        //Ball.getSPEED();
+        //double  ballspeed = Ball.getSPEED();
 
 
 
@@ -15,13 +15,13 @@ public class LockdownMode {
 
             //Balls don't move... kinda self explanatory
 
-            if (ballspeed > 0){
-                Ball.setSPEED(0);
+            if (false){//ballspeed > 0){
+                //Ball.setSPEED(0);
             }
 
 
         }
-        else { Ball.setSPEED(ballspeed);
+        else { //Ball.setSPEED(ballspeed);
         }
     }
 

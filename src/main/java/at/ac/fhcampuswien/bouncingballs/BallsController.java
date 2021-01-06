@@ -16,10 +16,28 @@ public class BallsController {
         areawidth = area.getWidth();
         balls = new ArrayList<>();
 
-        // create healthy balls in area simulation
-        for (int i = 0; i < populationSize-1; i++) {
-            balls.add(new Ball(State.HEALTHY, area));
+
+        // If lockdown is selected: half of the population stands still while th other half is moving casually
+        if(uiSettingsController.getoptLockdown() == true){
+            for (int i = 0; i < (populationSize)/2; i++) {
+                balls.add(new Ball(State.HEALTHY, area));
+            }
+
+            for (int i = 0; i < (populationSize-1)/2; i++) {
+                Ball ball = new Ball(State.HEALTHY, area);
+                ball.setSPEED(0);
+                balls.add(ball);
+            }
         }
+
+        // normal mode
+        else {
+            // create healthy balls in area simulation
+            for (int i = 0; i < populationSize - 1; i++) {
+                balls.add(new Ball(State.HEALTHY, area));
+            }
+        }
+
         // add single infected ball in area simulation
         balls.add(new Ball(State.INFECTED, area));
         draw();
