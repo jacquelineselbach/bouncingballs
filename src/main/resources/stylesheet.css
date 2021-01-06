@@ -26,9 +26,8 @@
 .titleButtons {
         -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
         -fx-font-size: 24.0;
-    }
-
 }
+
 .titleScreen {
     -fx-font-family: "Aktiv Grotesk Trial Bold";
     -fx-font-size: 48.0;
@@ -44,11 +43,4 @@
     -fx-font-family: "Aktiv Grotesk Trial Regular";
     -fx-font-size: 25.0;
 
-}
-
-
-
-.background {
-
-    -fx-background-color: #FFFFFF;
 }
