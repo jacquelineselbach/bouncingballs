@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiStartController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiStartController">
    <children>
-      <Text layoutX="69.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOUNCING BALLS" textAlignment="CENTER" wrappingWidth="661.7294921875">
-         <font>
-            <Font name="Aktiv Grotesk Trial Bold" size="48.0" />
-         </font>
+      <Text layoutX="69.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titleScreen" text="BOUNCING BALLS" textAlignment="CENTER" wrappingWidth="661.7294921875">
+
       </Text>
-      <Button fx:id="startButton" defaultButton="true" layoutX="286.0" layoutY="174.0" mnemonicParsing="false" onAction="#startConf" prefHeight="92.0" prefWidth="251.0" text="START">
-         <font>
-            <Font name="Aktiv Grotesk Trial Bold Italic" size="24.0" />
-         </font>
+      <Button fx:id="startButton" defaultButton="true" layoutX="286.0" layoutY="174.0" mnemonicParsing="false" onAction="#startConf" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="START">
+
       </Button>
-      <Button fx:id="infoButton" layoutX="286.0" layoutY="290.0" mnemonicParsing="false" onAction="#info" prefHeight="92.0" prefWidth="251.0" text="INFO">
-         <font>
-            <Font name="Aktiv Grotesk Trial Bold Italic" size="24.0" />
-         </font>
+      <Button fx:id="infoButton" layoutX="286.0" layoutY="290.0" mnemonicParsing="false" onAction="#info" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="INFO">
+
       </Button>
-      <Button id="exit" layoutX="286.0" layoutY="404.0" mnemonicParsing="false" onAction="#exit" prefHeight="92.0" prefWidth="251.0" text="EXIT">
-         <font>
-            <Font name="Aktiv Grotesk Trial Bold Italic" size="24.0" />
-         </font>
+      <Button id="exit" layoutX="286.0" layoutY="404.0" mnemonicParsing="false" onAction="#exit" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="EXIT">
+
       </Button>
-      <Text layoutX="476.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COPYRIGHT 2020/2021 - GURU MEDITATION CLAN" />
+      <Text layoutX="419.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COPYRIGHT 2020/2021 - GURU MEDITATION CLAN" />
       <Button fx:id="aboutusButton" layoutX="754.0" layoutY="550.0" mnemonicParsing="false" onAction="#aboutus" prefHeight="23.0" prefWidth="23.0">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">

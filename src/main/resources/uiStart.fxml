@@ -24,7 +24,7 @@
       <Button fx:id="aboutusButton" layoutX="754.0" layoutY="550.0" mnemonicParsing="false" onAction="#aboutus" prefHeight="23.0" prefWidth="23.0">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="https://img.icons8.com/flat_round/2x/info.png" />
+               <Image url="images/info.png" />
             </ImageView>
          </graphic>
       </Button>

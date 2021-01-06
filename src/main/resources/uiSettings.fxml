@@ -23,7 +23,7 @@
             <children>
                 <RadioButton fx:id="rbNormal" mnemonicParsing="false" onAction="#modeNormal"  text="NORMAL">
                     <font>
-                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                        <Font name="Aktiv Grotesk Trial" size="20.0" />
                     </font>
                 </RadioButton>
                 <RadioButton fx:id="rbSocialDist" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false"  onAction="#modeSocialDist" text="SOCIAL DISTANCING">
