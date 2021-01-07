@@ -41,6 +41,8 @@ public class Ball {
         dx = Math.sin(direction);
         dy = Math.cos(direction);
 
+        // Get OS info and Setup SPEED for OSX
+        checkOS();
         // area needs to draw circles
         area.getChildren().add(c);
     }
@@ -107,5 +109,13 @@ public class Ball {
     }
     public void bounceY(){
         dy *= -1;
+    }
+
+    // Check if Running Host is OS X (macOS), because on that OS The Balls are with SPEED 1 to slow. :(
+    private void checkOS(){
+    if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS"))
+    {
+        SPEED = 2;
+    }
     }
 }
