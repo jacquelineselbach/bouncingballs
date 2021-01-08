@@ -115,7 +115,7 @@ public class Ball {
     private void checkOS(){
     if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS"))
     {
-        SPEED = 2;
+        SPEED = 1.3;
     }
     }
 }

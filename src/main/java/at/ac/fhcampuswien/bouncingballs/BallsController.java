@@ -17,7 +17,7 @@ public class BallsController {
         balls = new ArrayList<>();
 
 
-        // If lockdown is selected: half of the population stands still while th other half is moving casually
+        // If lockdown is selected: half of the population stands still while the other half is moving casually
         if(uiSettingsController.getoptLockdown() == true){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
