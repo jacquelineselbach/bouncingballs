@@ -1,6 +1,7 @@
 package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Random;
 
@@ -34,8 +35,16 @@ public class Ball {
         this.state = state;
         this.area = area;
         c = new Circle(radius, state.getColor());
+
+        // creates "safespace" around balls if social distancing is active
+        if (uiSettingsController.getoptSocialDist() == true){
+            c.setStroke(Color.GREY);
+            c.setStrokeWidth(3);
+        }
+
         x = radius + random.nextDouble() * (area.getWidth() - 2 * radius);
         y = radius + random.nextDouble() * (area.getHeight() - 2 * radius);
+
         // random starting directions measured in radians
         double direction = random.nextDouble() * 2 * Math.PI;
         dx = Math.sin(direction);
