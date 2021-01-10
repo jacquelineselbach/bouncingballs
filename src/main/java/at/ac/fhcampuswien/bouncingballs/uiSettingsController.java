@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class uiSettingsController implements Initializable {
 
     // EveryOption gets a boolean Value
-    private static boolean optionNormal = false, optionSocialDist = false, optionLockdown =  false;
+    private static boolean optionNormal = false, optionSocialDist = false, optionLockdown =  false, optionLockdownANDsocialDist;
 
     // Sim stage for IF Command
     private Stage simulationStage;
@@ -27,7 +27,8 @@ public class uiSettingsController implements Initializable {
     private SimulationController sc;
 
     @FXML
-    private RadioButton rbNormal, rbSocialDist, rbLockdown;
+    private RadioButton rbNormal, rbSocialDist, rbLockdown, rbLockdownANDsocialDist;
+
     @FXML
     private Button startButton, backButton;
 
@@ -37,19 +38,24 @@ public class uiSettingsController implements Initializable {
     }
 
     public void modeNormal(ActionEvent actionEvent) {
-        setProperties(true,false,false);
-        debugOutput(optionNormal,optionSocialDist,optionLockdown);
+        setProperties(true,false,false, false);
+        debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
 
     }
 
     public void modeSocialDist(ActionEvent actionEvent) {
-        setProperties(false, true, false);
-        debugOutput(optionNormal,optionSocialDist,optionLockdown);
+        setProperties(false, true, false, false);
+        debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
     public void modeLockdown(ActionEvent actionEvent) {
-        setProperties(false, false, true);
-        debugOutput(optionNormal,optionSocialDist,optionLockdown);
+        setProperties(false, false, true, false);
+        debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
+    }
+
+    public void modeLockdownANDsocialDist(ActionEvent actionEvent) {
+        setProperties(false, false, false, true);
+        debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
     // Back Button Method
@@ -112,13 +118,15 @@ public class uiSettingsController implements Initializable {
 
 
     //Set Properties to Buttons and Options
-    private void setProperties(boolean normal, boolean distance, boolean lockdown){
+    private void setProperties(boolean normal, boolean distance, boolean lockdown, boolean lockdownandsocialdistancing){
         rbNormal.setSelected(normal);
         optionNormal = normal;
         rbSocialDist.setSelected(distance);
         optionSocialDist = distance;
         rbLockdown.setSelected(lockdown);
         optionLockdown = lockdown;
+        rbLockdownANDsocialDist.setSelected(lockdownandsocialdistancing);
+        optionLockdownANDsocialDist = lockdownandsocialdistancing;
     }
 
     ///////////////////////////////////////////////////////
@@ -136,14 +144,18 @@ public class uiSettingsController implements Initializable {
         return optionLockdown;
     }
 
+    protected static boolean getoptLockdownANDsocialDist(){
+        return optionLockdownANDsocialDist;
+    }
+
     // Reset Buttons and Options
     private void standardValues(){
-        setProperties(true,false,false);
-        debugOutput(optionNormal,optionSocialDist,optionLockdown);
+        setProperties(true,false,false, false);
+        debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
     // A lil Helper, if the Values are setted correctly.
-    private void debugOutput(boolean normal, boolean socialDist, boolean lockdown){
-        System.out.println("DEBUG: normal: " + normal + " Social: " + socialDist + " Lock: " + lockdown);
+    private void debugOutput(boolean normal, boolean socialDist, boolean lockdown, boolean ldANDsd){
+        System.out.println("DEBUG: normal: " + normal + " -- Social: " + socialDist + " -- Lock: " + lockdown + " -- Lock & Social: " + ldANDsd);
     }
 
 }

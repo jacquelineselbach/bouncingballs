@@ -36,6 +36,11 @@
                         <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
                     </font>
                 </RadioButton>
+                <RadioButton fx:id="rbLockdownANDsocialDist" mnemonicParsing="false" onAction="#modeLockdownANDsocialDist" text="LOCKDOWN WITH SOCIAL DISTANCING">
+                    <font>
+                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                    </font>
+                </RadioButton>
             </children>
         </VBox>
       <Button fx:id="backButton" layoutX="69.0" layoutY="478.0" mnemonicParsing="false" onAction="#goBack" prefHeight="63.0" prefWidth="154.0" text="BACK">

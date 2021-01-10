@@ -18,7 +18,7 @@ public class BallsController {
 
 
         // If lockdown is selected: half of the population stands still while the other half is moving casually
-        if(uiSettingsController.getoptLockdown() == true){
+        if(uiSettingsController.getoptLockdown() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
             }

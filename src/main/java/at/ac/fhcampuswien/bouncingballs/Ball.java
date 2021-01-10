@@ -37,7 +37,7 @@ public class Ball {
         c = new Circle(radius, state.getColor());
 
         // creates "safespace" around balls if social distancing is active
-        if (uiSettingsController.getoptSocialDist() == true){
+        if (uiSettingsController.getoptSocialDist() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
             c.setStroke(Color.GREY);
             c.setStrokeWidth(3);
         }

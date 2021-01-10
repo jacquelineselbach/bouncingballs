@@ -55,13 +55,14 @@ public class SimulationController {
     private final static double deathrate = 10.;
     private static boolean socialdistancing;
     private static boolean lockdown;
+    private static boolean lockdownANDsocialDist;
 
     public static double getDeathrate(){
         return deathrate;
     }
 
     public static double getInfectionrate(){
-        if(socialdistancing){
+        if(socialdistancing || lockdownANDsocialDist){
             return infectionrate * 0.5;
         }else{
             return infectionrate;
@@ -76,6 +77,7 @@ public class SimulationController {
     public void initialize() {
         socialdistancing = uiSettingsController.getoptSocialDist();
         lockdown = uiSettingsController.getoptLockdown();
+        lockdownANDsocialDist = uiSettingsController.getoptLockdownANDsocialDist();
         timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
         disableButtons(true,false, true, true);
