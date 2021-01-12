@@ -14,66 +14,77 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
    <bottom>
-      <HBox prefHeight="343.0" prefWidth="1680.0" spacing="10.0" styleClass="background" stylesheets="@stylesheet.css"
-            BorderPane.alignment="CENTER">
+      <HBox prefHeight="343.0" prefWidth="1680.0" spacing="10.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets/>
+            <Insets />
          </BorderPane.margin>
          <padding>
-            <Insets top="10.0"/>
+            <Insets top="10.0" />
          </padding>
-         <Pane fx:id="chart" prefHeight="333.0" prefWidth="1214.0" snapToPixel="false"/>
+         <Pane fx:id="chart" prefHeight="333.0" prefWidth="1214.0" snapToPixel="false" />
          <Pane fx:id="histogram" prefHeight="333.0" prefWidth="316.0">
             <cursor>
-               <Cursor fx:constant="DEFAULT"/>
+               <Cursor fx:constant="DEFAULT" />
             </cursor>
             <HBox.margin>
-               <Insets/>
+               <Insets />
             </HBox.margin>
-            <HBox prefHeight="20.0" prefWidth="299.0" spacing="20.0">
-               <Label text="HEALTHY"/>
-               <Label text="INFECTED"/>
-               <Label text="RECOVERED"/>
-               <Label text="DEAD"/>
+            <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
+               <Label text="HEALTHY">
+                  <font>
+                     <Font size="12.0" />
+                  </font></Label>
+               <Label text="INFECTED">
+                  <font>
+                     <Font size="12.0" />
+                  </font></Label>
+               <Label text="RECOVERED">
+                  <font>
+                     <Font size="12.0" />
+                  </font></Label>
+               <Label text="DEAD">
+                  <font>
+                     <Font size="12.0" />
+                  </font></Label>
             </HBox>
          </Pane>
          <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
             <padding>
-               <Insets bottom="50.0"/>
+               <Insets bottom="50.0" />
             </padding>
             <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
 
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="images/recurring-appointment.png"/>
+                     <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
                   </ImageView>
                </graphic>
 
             </Button>
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Start"> -->
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
 
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="images/play.png"/>
+                     <Image url="https://img.icons8.com/color/2x/play.png" />
                   </ImageView>
                </graphic>
 
             </Button>
             <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
 
 
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="images/pause.png"/>
+                     <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
                   </ImageView>
                </graphic>
 
@@ -81,12 +92,12 @@
             </Button>
             <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
 
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="images/step-over.png"/>
+                     <Image url="https://img.icons8.com/ios/2x/step-over.png" />
                   </ImageView>
                </graphic>
 
@@ -96,28 +107,27 @@
    </bottom>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1684.0"/>
-         <HBox prefHeight="75.0" prefWidth="1680.0" spacing="1000.0" styleClass="background"
-               stylesheets="@stylesheet.css">
+         <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1684.0" />
+         <HBox prefHeight="53.0" prefWidth="1680.0" spacing="1000.0">
 
             <Label alignment="TOP_LEFT" text="POPULATION  OVER TIME">
                <font>
-                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0"/>
+                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
                </font>
                <padding>
-                  <Insets left="10.0"/>
+                  <Insets left="10.0" />
                </padding>
             </Label>
             <Label text="HISTOGRAM">
                <font>
-                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0"/>
+                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
                </font>
             </Label>
             <VBox.margin>
-               <Insets/>
+               <Insets />
             </VBox.margin>
             <padding>
-               <Insets top="10.0"/>
+               <Insets top="10.0" />
             </padding>
          </HBox>
       </VBox>
