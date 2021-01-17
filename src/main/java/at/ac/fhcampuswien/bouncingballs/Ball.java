@@ -16,7 +16,7 @@ public class Ball {
     public static int radius = 5;
 
     // speed and direction variables
-    private double SPEED = 1;
+    private double SPEED = 4;
     public double getSPEED() { // speed setter und getter für Lockdownmode
         return SPEED;
     } //getter and setter for LockdownMode
@@ -28,7 +28,7 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state;
-    public final static int healtime = 1000; // measured in frames -> animation updates every frame
+    public final static int healtime = 420; // measured in frames -> target fps: 60 -> recovery duration = 7 sec.
     private int sicktime = 0;
 
     public Ball(State state, Pane area) {
@@ -42,8 +42,9 @@ public class Ball {
             c.setStrokeWidth(3);
         }
 
-        x = radius + random.nextDouble() * (area.getWidth() - 2 * radius);
-        y = radius + random.nextDouble() * (area.getHeight() - 2 * radius);
+        // random starting positions 5 times radius away border in every direction
+        x = radius*5 + random.nextDouble() * (area.getWidth() - radius*10);
+        y = radius*5 + random.nextDouble() * (area.getHeight() - radius*10);
 
         // random starting directions measured in radians
         double direction = random.nextDouble() * 2 * Math.PI;
@@ -51,7 +52,7 @@ public class Ball {
         dy = Math.cos(direction);
 
         // Get OS info and Setup SPEED for OSX
-        checkOS();
+//        checkOS();
         // area needs to draw circles
         area.getChildren().add(c);
     }
@@ -67,12 +68,20 @@ public class Ball {
 
     public void move() {
         // if x/y get less then 0 Or greater than width/ height we want to bounce the balls back from the wall
-        if (x < Ball.radius || x > (area.getWidth() - Ball.radius)){
+        if (x <= radius || x >= (area.getWidth()-radius)){
             dx *= -1;
         }
-        else if (y < Ball.radius || y > (area.getHeight() - Ball.radius)){
+        else if (y <= radius || y >= (area.getHeight()-radius)){
             dy *= -1;
         }
+        // when balls bounce in/near corners
+        else if ((y <= (radius) && x <= (radius)) || ((x <= (radius)) && y >= (area.getHeight()-(radius)))
+                || (x >= (area.getWidth()-(radius)) && y <= (radius))
+                || (x >= (area.getWidth()-(radius)) && y >= (area.getHeight()-(radius))) ){
+            dx *= -1;
+            dy *= -1;
+        }
+
         x += dx * SPEED;
         y += dy * SPEED;
     }
@@ -121,10 +130,10 @@ public class Ball {
     }
 
     // Check if Running Host is OS X (macOS), because on that OS The Balls are with SPEED 1 to slow. :(
-    private void checkOS(){
-    if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS"))
-    {
-        SPEED = 1.3;
-    }
-    }
+//    private void checkOS(){
+//    if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS"))
+//    {
+//        SPEED = 1.3;
+//    }
+//    }
 }
