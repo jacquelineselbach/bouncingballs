@@ -26,23 +26,23 @@ public class SimulationController {
         }
 
         /*
+        EXPERIMENTAL FPS LIMITER
         handle() should get called every frame as of javafx documentation in reality speed differs different systems
         and this doesn't seem to correlate to actual framerate of the systems.
         The if statement added to the handle method should remedy that.
         The 'now'-variable is a timestamp in nanosecond. Unfortunately this could introduce jitter.
         Source: https://stackoverflow.com/questions/30146560/how-to-change-animationtimer-speed
          */
-
-        private long lastFrame = 0L;
+//        private long lastFrame = 0L;
 
         @Override
         public void handle(long now) {
             // 1 second = 1_000_000_000 nanoseconds, target framerate 60 fps -> update every 16_666_666 nanoseconds
-            if(now - lastFrame >= 16_666_666){
+//            if(now - lastFrame >= 16_666_666){
                 step();
                 incrementInstants();
-                lastFrame = now;
-            }
+//                lastFrame = now;
+//            }
         }
     }
 
@@ -66,7 +66,7 @@ public class SimulationController {
     private boolean resetswitch = true;
 
     private final static int populationSize = 300;
-    private final static double infectionrate = 50.;
+    private final static double infectionrate = 90.;
     private final static double deathrate = 10.;
     private static boolean socialdistancing;
     private static boolean lockdown;

@@ -16,7 +16,7 @@ public class Ball {
     public static int radius = 5;
 
     // speed and direction variables
-    private double SPEED = 4;
+    private double SPEED = 1;
     public double getSPEED() { // speed setter und getter für Lockdownmode
         return SPEED;
     } //getter and setter for LockdownMode
@@ -28,7 +28,9 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state;
-    public final static int healtime = 420; // measured in frames -> target fps: 60 -> recovery duration = 7 sec.
+// measured in frames -> target fps: 60 -> recovery duration = 7 sec. only used with frame limiter
+//    public final static int healtime = 420;
+    public final static int healtime = 1000;
     private int sicktime = 0;
 
     public Ball(State state, Pane area) {
@@ -52,7 +54,7 @@ public class Ball {
         dy = Math.cos(direction);
 
         // Get OS info and Setup SPEED for OSX
-//        checkOS();
+        checkOS();
         // area needs to draw circles
         area.getChildren().add(c);
     }
@@ -126,10 +128,9 @@ public class Ball {
     }
 
     // Check if Running Host is OS X (macOS), because on that OS The Balls are with SPEED 1 to slow. :(
-//    private void checkOS(){
-//    if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS"))
-//    {
-//        SPEED = 1.3;
-//    }
-//    }
+    private void checkOS(){
+        if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS")){
+            SPEED = 1.3;
+        }
+    }
 }
