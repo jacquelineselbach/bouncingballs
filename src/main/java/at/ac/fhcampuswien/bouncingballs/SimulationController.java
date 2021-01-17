@@ -66,7 +66,7 @@ public class SimulationController {
     private boolean resetswitch = true;
 
     private final static int populationSize = 300;
-    private final static double infectionrate = 90.;
+    private final static double infectionrate = 100.;
     private final static double deathrate = 10.;
     private static boolean socialdistancing;
     private static boolean lockdown;
@@ -78,7 +78,7 @@ public class SimulationController {
 
     public static double getInfectionrate(){
         if(socialdistancing || lockdownANDsocialDist){
-            return infectionrate * 0.50;
+            return infectionrate * 0.5;
         }else{
             return infectionrate;
         }

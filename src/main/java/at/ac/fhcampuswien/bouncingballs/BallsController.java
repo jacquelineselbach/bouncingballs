@@ -78,10 +78,10 @@ public class BallsController {
                 b.setState(State.INFECTED);
             }
             if((a.getState() != State.DEAD && b.getState() != State.DEAD) &&
-                    (a.getX() > Ball.radius*6 && a.getX() < areawidth-(Ball.radius*6)) &&
-                    (b.getX() > Ball.radius*6 && b.getX() < areawidth-(Ball.radius*6)) &&
-                    (a.getY() > Ball.radius*6 && a.getY() < areaheight-(Ball.radius*6)) &&
-                    (a.getY() > Ball.radius*6 && a.getY() < areaheight-(Ball.radius*6))){
+                    (a.getX() > Ball.radius*4 && a.getX() < areawidth-(Ball.radius*4)) &&
+                    (b.getX() > Ball.radius*4 && b.getX() < areawidth-(Ball.radius*4)) &&
+                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4)) &&
+                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4))){
                     /*
                     this prevents dead balls from bouncing or getting bounced of and it prevents
                      balls from bouncing too near the edge of the pane since they otherwise could
