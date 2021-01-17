@@ -70,20 +70,16 @@ public class Ball {
         // if x/y get less then 0 Or greater than width/ height we want to bounce the balls back from the wall
         if (x <= radius || x >= (area.getWidth()-radius)){
             dx *= -1;
+            x += dx * SPEED;
         }
         else if (y <= radius || y >= (area.getHeight()-radius)){
             dy *= -1;
+            y += dy * SPEED;
         }
-        // when balls bounce in/near corners
-        else if ((y <= (radius) && x <= (radius)) || ((x <= (radius)) && y >= (area.getHeight()-(radius)))
-                || (x >= (area.getWidth()-(radius)) && y <= (radius))
-                || (x >= (area.getWidth()-(radius)) && y >= (area.getHeight()-(radius))) ){
-            dx *= -1;
-            dy *= -1;
+        else{
+            x += dx * SPEED;
+            y += dy * SPEED;
         }
-
-        x += dx * SPEED;
-        y += dy * SPEED;
     }
 
     // balls need to be drawn
