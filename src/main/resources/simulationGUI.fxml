@@ -70,7 +70,7 @@
 
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
+                        <Image url="images/recurring-appointment.png" />
                      </ImageView>
                   </graphic>
 
@@ -82,7 +82,7 @@
 
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="https://img.icons8.com/color/2x/play.png" />
+                        <Image url="images/play.png" />
                      </ImageView>
                   </graphic>
 
@@ -94,7 +94,7 @@
 
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
+                        <Image url="images/pause.png" />
                      </ImageView>
                   </graphic>
 
@@ -106,7 +106,7 @@
 
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="https://img.icons8.com/ios/2x/step-over.png" />
+                        <Image url="images/step-over.png" />
                      </ImageView>
                   </graphic>
                </Button>
