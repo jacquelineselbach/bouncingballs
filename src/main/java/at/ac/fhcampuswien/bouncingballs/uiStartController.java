@@ -33,7 +33,7 @@ public class uiStartController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
             Scene scene = new Scene(root);
 
-            startStage.setTitle("Bouncing Balls - SET-UP YOUR BALLS!");
+            startStage.setTitle("Bouncing Balls - SET UP YOUR BALLS!");
             startStage.setResizable(false);
             startStage.setScene(scene);
 

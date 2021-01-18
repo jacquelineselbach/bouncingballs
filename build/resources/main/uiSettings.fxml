@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiSettingsController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiSettingsController">
     <children>
-        <Text layoutX="44.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SET-UP YOUR BALLS !">
+        <Text layoutX="44.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SET UP YOUR BALLS !">
             <font>
                 <Font name="Aktiv Grotesk Trial Bold Italic" size="45.0" />
             </font>
@@ -21,27 +22,30 @@
         </Text>
         <VBox layoutX="44.0" layoutY="232.0" prefHeight="190.0" prefWidth="712.0" spacing="25">
             <children>
-                <RadioButton fx:id="rbNormal" mnemonicParsing="false" onAction="#modeNormal" text="NORMAL">
+                <RadioButton fx:id="rbNormal" mnemonicParsing="false" onAction="#modeNormal" text="NO PRECAUTIONS">
                     <font>
-                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                        <Font name="Aktiv Grotesk Trial" size="20.0" />
                     </font>
                 </RadioButton>
                 <RadioButton fx:id="rbSocialDist" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#modeSocialDist" text="SOCIAL DISTANCING">
                     <font>
-                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                        <Font name="Aktiv Grotesk Trial" size="20.0" />
                     </font>
                 </RadioButton>
                 <RadioButton fx:id="rbLockdown" mnemonicParsing="false" onAction="#modeLockdown" text="LOCKDOWN">
                     <font>
-                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                        <Font name="Aktiv Grotesk Trial" size="20.0" />
                     </font>
                 </RadioButton>
                 <RadioButton fx:id="rbLockdownANDsocialDist" mnemonicParsing="false" onAction="#modeLockdownANDsocialDist" text="LOCKDOWN WITH SOCIAL DISTANCING">
                     <font>
-                        <Font name="Aktiv Grotesk Trial Regular" size="20.0" />
+                        <Font name="Aktiv Grotesk Trial" size="20.0" />
                     </font>
                 </RadioButton>
             </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
         </VBox>
       <Button fx:id="backButton" layoutX="69.0" layoutY="478.0" mnemonicParsing="false" onAction="#goBack" prefHeight="63.0" prefWidth="154.0" text="BACK">
          <font>
