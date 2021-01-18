@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiStartController">
-   <Text layoutX="69.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titleScreen"
-         text="BOUNCING BALLS" textAlignment="CENTER" wrappingWidth="661.7294921875">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.uiStartController">
+   <Text layoutX="69.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titleScreen" text="BOUNCING BALLS" textAlignment="CENTER" wrappingWidth="661.7294921875">
 
    </Text>
-   <Button fx:id="startButton" defaultButton="true" layoutX="286.0" layoutY="174.0" mnemonicParsing="false"
-           onAction="#startConf" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="START">
+   <Button fx:id="startButton" defaultButton="true" layoutX="286.0" layoutY="174.0" mnemonicParsing="false" onAction="#startConf" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="START">
 
    </Button>
-   <Button fx:id="infoButton" layoutX="286.0" layoutY="290.0" mnemonicParsing="false" onAction="#info" prefHeight="92.0"
-           prefWidth="251.0" styleClass="titleButtons" text="INFO">
+   <Button fx:id="infoButton" layoutX="286.0" layoutY="290.0" mnemonicParsing="false" onAction="#info" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="INFO">
 
    </Button>
-   <Button id="exit" layoutX="286.0" layoutY="404.0" mnemonicParsing="false" onAction="#exit" prefHeight="92.0"
-           prefWidth="251.0" styleClass="titleButtons" text="EXIT">
+   <Button id="exit" layoutX="286.0" layoutY="404.0" mnemonicParsing="false" onAction="#exit" prefHeight="92.0" prefWidth="251.0" styleClass="titleButtons" text="EXIT">
 
    </Button>
-   <Text layoutX="440.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0"
-         text="COPYRIGHT 2020/2021 - GURU MEDITATION CLAN"/>
-   <Button fx:id="aboutusButton" layoutX="754.0" layoutY="550.0" mnemonicParsing="false" onAction="#aboutus"
-           prefHeight="23.0" prefWidth="23.0">
+   <Text layoutX="445.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COPYRIGHT 2020/2021 - GURU MEDITATION CLAN   " wrappingWidth="323.6865234375" AnchorPane.bottomAnchor="29.2578125" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="555.0" />
+   <Button fx:id="aboutusButton" layoutX="776.0" layoutY="552.0" mnemonicParsing="false" onAction="#aboutus" prefHeight="23.0" prefWidth="23.0" AnchorPane.leftAnchor="776.0">
       <graphic>
          <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
             <Image url="images/info.png"/>
