@@ -3,6 +3,8 @@ package at.ac.fhcampuswien.bouncingballs;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -60,6 +62,8 @@ public class SimulationController {
     private Pane chart;
     @FXML
     private Pane histogram;
+    @FXML
+    private TextField States;
 
     private BallsController ballsController;
     private BBAnimationTimer timer;
@@ -170,6 +174,7 @@ public class SimulationController {
                 currentPopulation.put(b.getState(), 0);
             }
             currentPopulation.put(b.getState(), 1 + currentPopulation.get(b.getState()));
+
         }
 
         // setting heights for current populations / drawing the actual rectangles for histogram
@@ -183,11 +188,14 @@ public class SimulationController {
                 c.setTranslateX(timer.getInstants() / 6.0);
                 c.setTranslateY(populationSize - currentPopulation.get(state));
                 chart.getChildren().add(c);
+
             }
+
         }
+
+        States.setText("" + currentPopulation);
 
         if (!currentPopulation.containsKey(State.INFECTED))
             stop(); // stops the animation when there is no more infected ball
     }
-
 }
