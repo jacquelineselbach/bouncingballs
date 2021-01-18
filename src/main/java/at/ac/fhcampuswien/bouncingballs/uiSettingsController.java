@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class uiSettingsController implements Initializable {
 
     // EveryOption gets a boolean Value
-    private static boolean optionNormal = false, optionSocialDist = false, optionLockdown =  false, optionLockdownANDsocialDist;
+    private static boolean optionNormal, optionSocialDist, optionLockdown, optionLockdownANDsocialDist;
 
     // Sim stage for IF Command
     private Stage simulationStage;
@@ -79,16 +79,12 @@ public class uiSettingsController implements Initializable {
 
     // Reset Button Method
     public void reset(ActionEvent actionEvent) {
-    standardValues();
+        standardValues();
     }
 
     // Start Button Method
     public void letsStart(ActionEvent actionEvent) {
-       /* if(simulationStage != null)
-        {
-            simulationStage.close();
-        }*/
-        // Closes Settings Window
+
         ((Stage)startButton.getScene().getWindow()).close();
         simulationStage = new Stage();
 
@@ -98,15 +94,6 @@ public class uiSettingsController implements Initializable {
             simulationStage.setScene(new Scene(root));
             simulationStage.setResizable(false); // prevents window from resizing
             simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
-
-            // -- Hami ist working on this section PLEASE DON'T DELETE FOLLOWING COMMENTS !!!
-
-            //simulationStage.getScene().getWindow().startButton.fire();
-            //(Button) simulationStage.getScene().lookup("startbutton").setOnMouseClicked(event -> #start);
-            //simulationStage.getScene().lookup("startButton").;
-
-            // -- Hami's section ends here
-
             simulationStage.show();
 
         } catch (Exception e) {
@@ -114,7 +101,6 @@ public class uiSettingsController implements Initializable {
             System.exit(1);
         }
     }
-
 
     //Set Properties to Buttons and Options
     private void setProperties(boolean normal, boolean distance, boolean lockdown, boolean lockdownandsocialdistancing){
@@ -131,18 +117,13 @@ public class uiSettingsController implements Initializable {
     ///////////////////////////////////////////////////////
     // Getter! PLEASE USE THEM FOR YOUR CLASS!!!!!!
     ///////////////////////////////////////////////////////
-   protected static boolean getoptNormal(){
-        return optionNormal;
-}
 
     protected static boolean getoptSocialDist(){
         return optionSocialDist;
     }
-
     protected static boolean getoptLockdown(){
         return optionLockdown;
     }
-
     protected static boolean getoptLockdownANDsocialDist(){
         return optionLockdownANDsocialDist;
     }
@@ -152,7 +133,8 @@ public class uiSettingsController implements Initializable {
         setProperties(true,false,false, false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
-    // A lil Helper, if the Values are setted correctly.
+
+    // a little helper, to see the attribute values on the console
     private void debugOutput(boolean normal, boolean socialDist, boolean lockdown, boolean ldANDsd){
         System.out.println("DEBUG: normal: " + normal + " -- Social: " + socialDist + " -- Lock: " + lockdown + " -- Lock & Social: " + ldANDsd);
     }
