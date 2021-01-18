@@ -13,7 +13,7 @@ import java.util.EnumMap;
 
 public class SimulationController {
     private class BBAnimationTimer extends AnimationTimer {
-        private int instants = 0; // instants are used for charts
+        private int instants = 0; // time instants are used for histogram and line chart
 
         public int getInstants() {
             return instants;
@@ -86,7 +86,7 @@ public class SimulationController {
 
     private EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
     // enum map is mapping from state to rectangle for creating the charts
-    // finds how much balls are infected, healthy, etc.. / pot = population over time
+    // detects how much balls are infected, healthy, etc.. / pot = population over time
 
     @FXML
     public void initialize() {
@@ -96,22 +96,23 @@ public class SimulationController {
         timer = new BBAnimationTimer();
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
         disableButtons(true,false, true, true);
-        //lockdown();
     }
 
     @FXML
     public void step() { // single time steps
+
         ballsController.moveBalls();
         ballsController.resolveInfections();
         ballsController.resolveCollisions();
         ballsController.draw();
-        drawChart(); // as every time step goes the chart will be drawn
+
+        drawChart(); // as every time step goes the line chart will be drawn
     }
 
     @FXML
     public void start() {
         if(ballsController == null || resetswitch) {
-            ballsController = new BallsController(area, populationSize); // initialize new Simulation
+            ballsController = new BallsController(area, populationSize); // initialize new simulation
             setupCharts();
             drawChart();
         }
@@ -125,17 +126,21 @@ public class SimulationController {
     @FXML
     public void reset() {
         stop();
+
         timer.resetInstants(); // resets instants for chart generation before reset
         area.getChildren().clear(); // clear scene before reset
         histogram.getChildren().clear(); // clear scene for histogram
-        chart.getChildren().clear(); // clear scene for chart
+        chart.getChildren().clear(); // clear scene for line chart
+
         resetswitch = true;
+
         disableButtons(true,false, true, true);
     }
 
     @FXML
     public void stop() {
         timer.stop();
+
         disableButtons(false, false, true, false);
     }
 
@@ -159,7 +164,7 @@ public class SimulationController {
 
     // creates a map between states and integers and builds up the histogram in terms of numbers
     public void drawChart() {
-        EnumMap<State, Integer> currentPopulation = new EnumMap<>(State.class); // every timestep we are going to calculate in which state balls are
+        EnumMap<State, Integer> currentPopulation = new EnumMap<>(State.class); // every timestep we are calculating in which state the balls are in
         for (Ball b : ballsController.getBalls()) {
             if(!currentPopulation.containsKey(b.getState())) {
                 currentPopulation.put(b.getState(), 0);
@@ -185,17 +190,4 @@ public class SimulationController {
             stop(); // stops the animation when there is no more infected ball
     }
 
-    /*
-    // activates LockdownMode
-    private void lockdown(){ //activates lockdownmode DAVE
-        if (lockdown == true){
-            LockdownMode.lockdown();
-        }
-        else {
-            Ball.setSPEED(1);
-        }
-
-    }
-
-     */
 }

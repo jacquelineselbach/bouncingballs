@@ -23,7 +23,7 @@ public class uiAboutUsController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));
             backStage.setScene(new Scene(root));
 
-            backStage.setResizable(false);   // This prevents window from resizing
+            backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls"); // sets title of the scene
             backStage.show();
 
@@ -41,7 +41,7 @@ public class uiAboutUsController {
             Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
             backStage.setScene(new Scene(root));
 
-            backStage.setResizable(false);   // This prevents window from resizing
+            backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls - SET-UP YOUR BALLS!"); // sets title of the scene
             backStage.show();
 

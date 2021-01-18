@@ -67,7 +67,7 @@ public class uiSettingsController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));
             backStage.setScene(new Scene(root));
 
-            backStage.setResizable(false);   // This prevents window from resizing
+            backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls"); // sets title of the scene
             backStage.show();
 
@@ -96,8 +96,7 @@ public class uiSettingsController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
             simulationStage.setScene(new Scene(root));
-          //  root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
-            simulationStage.setResizable(false);   // This prevents window from resizing
+            simulationStage.setResizable(false); // prevents window from resizing
             simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
 
             // -- Hami ist working on this section PLEASE DON'T DELETE FOLLOWING COMMENTS !!!

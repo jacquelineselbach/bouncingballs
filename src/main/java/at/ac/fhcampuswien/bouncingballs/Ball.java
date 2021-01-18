@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class Ball {
     Random random = new Random();
-    private Circle c; // draw circles on the screens
-    private Pane area; // draw area on the screens
+    private Circle c; // draws circles on the screen
+    private Pane area; // draws area on the screen
 
     // positional variables and size of balls
     private double x; // position on x-axis
@@ -17,9 +17,7 @@ public class Ball {
 
     // speed and direction variables
     private double SPEED = 1;
-    public double getSPEED() { // speed setter und getter für Lockdownmode
-        return SPEED;
-    } //getter and setter for LockdownMode
+
     public void setSPEED (double speed){
         SPEED = speed;
     }
@@ -27,9 +25,8 @@ public class Ball {
     private double dy;
 
     // variables regarding sickness and health
-    private State state;
-// measured in frames -> target fps: 60 -> recovery duration = 7 sec. only used with frame limiter
-//    public final static int healtime = 420;
+    private State state; // measured in frames -> target fps: 60 -> recovery duration = 7 sec. only used with frame limiter
+    //    public final static int healtime = 420;
     public final static int healtime = 1000;
     private int sicktime = 0;
 
@@ -45,18 +42,19 @@ public class Ball {
         }
 
         // random starting positions 5 times radius away border in every direction
-        x = radius*5 + random.nextDouble() * (area.getWidth() - radius*10);
-        y = radius*5 + random.nextDouble() * (area.getHeight() - radius*10);
+        x = radius * 5 + random.nextDouble() * (area.getWidth() - radius * 10);
+        y = radius * 5 + random.nextDouble() * (area.getHeight() - radius * 10);
 
         // random starting directions measured in radians
         double direction = random.nextDouble() * 2 * Math.PI;
         dx = Math.sin(direction);
         dy = Math.cos(direction);
 
+        // draws circles in the area
+        area.getChildren().add(c);
+
         // Get OS info and Setup SPEED for OSX
         checkOS();
-        // area needs to draw circles
-        area.getChildren().add(c);
     }
 
     public State getState() {
@@ -69,7 +67,7 @@ public class Ball {
     }
 
     public void move() {
-        // if x/y get less then 0 Or greater than width/ height we want to bounce the balls back from the wall
+        // if x/y get less then 0 Or greater than width/ height balls should bounce back from the wall
         if (x <= radius || x >= (area.getWidth()-radius)){
             dx *= -1;
             x += dx * SPEED;
@@ -84,7 +82,7 @@ public class Ball {
         }
     }
 
-    // balls need to be drawn
+    // balls are drawn
     public void draw() {
         c.setRadius(radius);
         c.setTranslateX(x);
@@ -127,10 +125,10 @@ public class Ball {
         dy *= -1;
     }
 
-    // Check if Running Host is OS X (macOS), because on that OS The Balls are with SPEED 1 to slow. :(
+    // check if running host is OS X (macOS), because on that OS the balls are too slow :(
     private void checkOS(){
         if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS")){
-            SPEED = 1.3;
+            SPEED = 1.2;
         }
     }
 }

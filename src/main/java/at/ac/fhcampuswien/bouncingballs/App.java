@@ -12,13 +12,11 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader();
-//            BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
 
             Parent root = loader.load(getClass().getResource("/uiStart.fxml"));
             primaryStage.setScene(new Scene(root));
-            //    root.getStylesheets().add("stylesheet.css"); // adding css stylesheet
 
-            primaryStage.setResizable(false);   // This prevents window from resizing
+            primaryStage.setResizable(false);   // prevents window from resizing
             primaryStage.setTitle("Bouncing Balls"); // sets title of the scene
             primaryStage.show();
 
