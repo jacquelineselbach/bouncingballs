@@ -1,6 +1,7 @@
 package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -14,6 +15,8 @@ import javafx.scene.shape.Rectangle;
 import java.util.EnumMap;
 
 public class SimulationController {
+
+
     private class BBAnimationTimer extends AnimationTimer {
         private int instants = 0; // time instants are used for histogram and line chart
 
@@ -140,6 +143,12 @@ public class SimulationController {
 
         disableButtons(true,false, true, true);
     }
+
+    // ROMANS METHOD -----------------------------------
+    public void opensetting(ActionEvent actionEvent) {
+
+    }
+    // -------------------------------------------------
 
     @FXML
     public void stop() {
