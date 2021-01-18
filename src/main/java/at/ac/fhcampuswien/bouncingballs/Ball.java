@@ -98,7 +98,7 @@ public class Ball {
             if (sicktime >= healtime && probability > deathrate/100) {
                 setState(State.RECOVERED);
 
-            } else if(sicktime >= healtime && probability <= deathrate/200) {
+            } else if(sicktime >= healtime && probability <= deathrate/100) {
                 setState(State.DEAD);
             }
         }
