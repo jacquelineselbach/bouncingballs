@@ -47,9 +47,6 @@
    <bottom>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <HBox maxHeight="-Infinity" prefHeight="250.0" prefWidth="1280.0" spacing="10.0">
-            <padding>
-               <Insets top="10.0" />
-            </padding>
             <Pane fx:id="chart" prefHeight="362.0" prefWidth="831.0" snapToPixel="false" />
             <Pane fx:id="histogram" prefHeight="271.0" prefWidth="292.0">
                <cursor>
@@ -60,9 +57,6 @@
                </HBox.margin>
             </Pane>
             <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
                <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -104,7 +98,7 @@
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
 
-                  <graphic>
+                 <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/step-over.png" />
                      </ImageView>
@@ -125,6 +119,9 @@
                </Button>
 
             </VBox>
+            <padding>
+               <Insets bottom="-10.0" />
+            </padding>
          </HBox>
          <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
             <TextField fx:id="States" editable="false" prefHeight="34.0" prefWidth="317.0">
