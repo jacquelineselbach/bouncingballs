@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -35,13 +36,13 @@ public class uiStartController {
 
             startStage.setTitle("Bouncing Balls - SET UP YOUR BALLS!");
             startStage.setResizable(false);
+            startStage.getIcons().add(new Image("images/bb-logo.png"));
             startStage.setScene(scene);
 
             startStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML

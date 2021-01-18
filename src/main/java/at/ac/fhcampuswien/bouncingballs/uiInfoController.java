@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class uiInfoController {
@@ -26,6 +27,7 @@ public class uiInfoController {
 
             backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls"); // sets title of the scene
+            backStage.getIcons().add(new Image("images/bb-logo.png"));
             backStage.show();
 
         } catch (Exception e) {

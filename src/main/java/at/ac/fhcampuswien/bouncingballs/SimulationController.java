@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -163,6 +164,7 @@ public class SimulationController {
 
             startStage.setTitle("Bouncing Balls - SET UP YOUR BALLS!");
             startStage.setResizable(false);
+            startStage.getIcons().add(new Image("images/bb-logo.png"));
             startStage.setScene(scene);
 
             startStage.show();

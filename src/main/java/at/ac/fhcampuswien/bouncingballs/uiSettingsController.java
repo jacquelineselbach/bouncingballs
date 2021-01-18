@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -69,6 +70,7 @@ public class uiSettingsController implements Initializable {
 
             backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls"); // sets title of the scene
+            backStage.getIcons().add(new Image("images/bb-logo.png"));
             backStage.show();
 
         } catch (Exception e) {
@@ -94,6 +96,7 @@ public class uiSettingsController implements Initializable {
             simulationStage.setScene(new Scene(root));
             simulationStage.setResizable(false); // prevents window from resizing
             simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
+            simulationStage.getIcons().add(new Image("images/bb-logo.png"));
             simulationStage.show();
 
         } catch (Exception e) {
