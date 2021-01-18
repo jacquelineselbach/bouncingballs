@@ -65,7 +65,7 @@ public class SimulationController {
     private BBAnimationTimer timer;
     private boolean resetswitch = true;
 
-    private final static int populationSize = 300;
+    private final static int populationSize = 250;
     private final static double infectionrate = 100.;
     private final static double deathrate = 10.;
     private static boolean socialdistancing;
@@ -175,7 +175,7 @@ public class SimulationController {
 
                 // line chart
                 Circle c = new Circle(1,state.getColor());
-                c.setTranslateX(timer.getInstants() / 5.0);
+                c.setTranslateX(timer.getInstants() / 6.0);
                 c.setTranslateY(populationSize - currentPopulation.get(state));
                 chart.getChildren().add(c);
             }

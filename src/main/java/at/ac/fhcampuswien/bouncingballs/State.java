@@ -9,16 +9,15 @@ public enum State {
             return Color.LIGHTGRAY;
         }
     }, INFECTED {
-        public Color getColor(){
-            return Color.YELLOW;
+        public Color getColor(){ return Color.GOLD;
         }
     }, RECOVERED {
         public Color getColor() {
-            return Color.SPRINGGREEN;
+            return Color.DODGERBLUE;
         }
     }, DEAD {
         public Color getColor() {
-            return Color.DARKSLATEGREY;
+            return Color.DIMGRAY;
         }
     };
 

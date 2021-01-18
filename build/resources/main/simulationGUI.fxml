@@ -12,124 +12,147 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
-   <bottom>
-      <HBox prefHeight="343.0" prefWidth="1680.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-         <Pane fx:id="chart" prefHeight="333.0" prefWidth="1214.0" snapToPixel="false" />
-         <Pane fx:id="histogram" prefHeight="333.0" prefWidth="316.0">
-            <cursor>
-               <Cursor fx:constant="DEFAULT" />
-            </cursor>
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
-               <Label text="HEALTHY">
-                  <font>
-                     <Font size="12.0" />
-                  </font></Label>
-               <Label text="INFECTED">
-                  <font>
-                     <Font size="12.0" />
-                  </font></Label>
-               <Label text="RECOVERED">
-                  <font>
-                     <Font size="12.0" />
-                  </font></Label>
-               <Label text="DEAD">
-                  <font>
-                     <Font size="12.0" />
-                  </font></Label>
-            </HBox>
-         </Pane>
-         <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
-            <padding>
-               <Insets bottom="50.0" />
-            </padding>
-            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
-                  </ImageView>
-               </graphic>
-
-            </Button>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Start"> -->
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="https://img.icons8.com/color/2x/play.png" />
-                  </ImageView>
-               </graphic>
-
-            </Button>
-            <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-
-
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
-                  </ImageView>
-               </graphic>
-
-
-            </Button>
-            <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="https://img.icons8.com/ios/2x/step-over.png" />
-                  </ImageView>
-               </graphic>
-
-            </Button>
-         </VBox>
-      </HBox>
-   </bottom>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1684.0" />
-         <HBox prefHeight="53.0" prefWidth="1680.0" spacing="1000.0">
+         <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1280.0" />
+         <HBox prefHeight="72.0" prefWidth="1280.0" spacing="615.0">
 
-            <Label alignment="TOP_LEFT" text="POPULATION  OVER TIME">
+            <Label alignment="TOP_LEFT" prefHeight="63.0" prefWidth="203.0" text="POPULATION  OVER TIME">
                <font>
                   <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
                </font>
                <padding>
-                  <Insets left="10.0" />
+                  <Insets left="10.0" top="5.0" />
                </padding>
             </Label>
             <Label text="HISTOGRAM">
                <font>
                   <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
                </font>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
             </Label>
             <VBox.margin>
                <Insets />
             </VBox.margin>
             <padding>
-               <Insets top="10.0" />
+               <Insets bottom="20.0" top="20.0" />
             </padding>
          </HBox>
       </VBox>
    </center>
+   <bottom>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="325.0" prefWidth="1280.0" spacing="10.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <Pane fx:id="chart" prefHeight="362.0" prefWidth="831.0" snapToPixel="false" />
+               <Pane fx:id="histogram" prefHeight="271.0" prefWidth="292.0">
+                  <cursor>
+                     <Cursor fx:constant="DEFAULT" />
+                  </cursor>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </Pane>
+               <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
+                  <padding>
+                     <Insets bottom="50.0" />
+                  </padding>
+                  <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+      
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="https://img.icons8.com/color/2x/recurring-appointment.png" />
+                        </ImageView>
+                     </graphic>
+      
+                  </Button>
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Start"> -->
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+      
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="https://img.icons8.com/color/2x/play.png" />
+                        </ImageView>
+                     </graphic>
+      
+                  </Button>
+                  <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+      
+      
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="https://img.icons8.com/flat_round/2x/pause.png" />
+                        </ImageView>
+                     </graphic>
+      
+      
+                  </Button>
+                  <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+      
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="https://img.icons8.com/ios/2x/step-over.png" />
+                        </ImageView>
+                     </graphic>
+      
+                  </Button>
+               </VBox>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
+               <Label text="HEALTHY">
+                  <HBox.margin>
+                     <Insets right="3.0" />
+                  </HBox.margin>
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+               <Label text="INFECTED">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="-5.0" />
+                  </HBox.margin>
+               </Label>
+               <Label text="RECOVERED">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets right="5.0" />
+                  </HBox.margin>
+               </Label>
+               <Label text="DEAD">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
+               </Label>
+               <padding>
+                  <Insets bottom="20.0" left="828.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
 </BorderPane>
