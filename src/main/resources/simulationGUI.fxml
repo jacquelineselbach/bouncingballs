@@ -116,9 +116,9 @@
             </VBox>
          </HBox>
          <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
-            <TextField fx:id="States" editable="false" prefHeight="27.0" prefWidth="351.0">
+            <TextField fx:id="States" editable="false" prefHeight="27.0" prefWidth="357.0">
                <HBox.margin>
-                  <Insets right="443.0" />
+                  <Insets right="438.0" />
                </HBox.margin>
             </TextField>
             <Label text="HEALTHY">
