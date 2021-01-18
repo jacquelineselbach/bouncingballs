@@ -24,7 +24,7 @@
            prefWidth="251.0" styleClass="titleButtons" text="EXIT">
 
    </Button>
-   <Text layoutX="419.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0"
+   <Text layoutX="470.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0"
          text="COPYRIGHT 2020/2021 - GURU MEDITATION CLAN"/>
    <Button fx:id="aboutusButton" layoutX="754.0" layoutY="550.0" mnemonicParsing="false" onAction="#aboutus"
            prefHeight="23.0" prefWidth="23.0">
