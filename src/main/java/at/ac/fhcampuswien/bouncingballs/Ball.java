@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 import java.util.Random;
 
 /*This class defines the characteristics of the balls such as
- size, movement, speed, and status (dependent of the outcome).
+ //size, movement, speed, and status (dependent of the outcome).
  Also the method checkOS was implemented as a countermeasure due to discrepancies
  in the speed of movement of the balls in different operating systems.
 */
