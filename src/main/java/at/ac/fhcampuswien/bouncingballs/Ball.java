@@ -37,7 +37,7 @@ public class Ball {
 
         // creates "safespace" around balls if social distancing is active
         if (uiSettingsController.getoptSocialDist() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
-            c.setStroke(Color.GREY);
+            c.setStroke(Color.WHITE);
             c.setStrokeWidth(3);
         }
 
