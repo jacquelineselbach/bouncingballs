@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -46,7 +47,7 @@
    </center>
    <bottom>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <HBox maxHeight="-Infinity" prefHeight="250.0" prefWidth="1280.0" spacing="10.0">
+         <HBox maxHeight="-Infinity" prefHeight="245.0" prefWidth="1280.0" spacing="10.0">
             <Pane fx:id="chart" prefHeight="362.0" prefWidth="831.0" snapToPixel="false" />
             <Pane fx:id="histogram" prefHeight="271.0" prefWidth="292.0">
                <cursor>
@@ -56,12 +57,14 @@
                   <Insets />
                </HBox.margin>
             </Pane>
-            <VBox alignment="CENTER" prefHeight="333.0" prefWidth="186.0" spacing="10.0">
+            <VBox alignment="CENTER" prefHeight="249.0" prefWidth="159.0" spacing="10.0">
                <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
-
+                  <tooltip>
+                     <Tooltip text="Reset" />
+                  </tooltip>
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/recurring-appointment.png" />
@@ -73,7 +76,9 @@
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
-
+                  <tooltip>
+                     <Tooltip text="Run the Simulation" />
+                  </tooltip>
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/play.png" />
@@ -85,7 +90,9 @@
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
-
+                  <tooltip>
+                     <Tooltip text="Pause the Simulation" />
+                  </tooltip>
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/pause.png" />
@@ -97,7 +104,9 @@
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
-
+                  <tooltip>
+                     <Tooltip text="Step by Step" />
+                  </tooltip>
                  <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/step-over.png" />
@@ -109,7 +118,9 @@
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
-
+                  <tooltip>
+                     <Tooltip text="Back to Setup" />
+                  </tooltip>
                   <graphic>
                      <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="images/settings.png" />
@@ -117,6 +128,9 @@
                   </graphic>
 
                </Button>
+               <padding>
+                  <Insets bottom="15.0" top="-15.0" />
+               </padding>
 
             </VBox>
             <padding>
@@ -126,7 +140,7 @@
          <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
             <TextField fx:id="States" editable="false" prefHeight="34.0" prefWidth="317.0">
                <HBox.margin>
-                  <Insets right="476.0" />
+                  <Insets right="480.0" />
                </HBox.margin>
                <font>
                   <Font name="Aktiv Grotesk Trial" size="11.0" />
