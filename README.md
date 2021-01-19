@@ -1,5 +1,8 @@
 # bouncingballs
 
+"This Application is a Pandemic Simulator, which simulates the spread of infection through a population of 250. 
+The population is shown as »Bouncing Balls«. It always starts with one infected person."
+
 RULES FOR GITHUB (BY HAMI)
 
 - Bevor man anfängt zu coden: PULL (bzw. Fetch)
