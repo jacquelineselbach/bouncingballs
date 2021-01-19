@@ -4,9 +4,10 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.Random;
 
-/* The class BallsController is in charge of the interaction between the balls, themselves and their surroundings.
-   Depending on the mode of the simulation (no precautions, social distancing, Lockdown, Lockdown with social distancing)
-   some of the balls will behave differently.
+/*
+ The class BallsController is in charge of the interaction between the balls, themselves and their surroundings.
+ Depending on the mode of the simulation (no precautions, social distancing, Lockdown, Lockdown with social distancing)
+ some of the balls will behave differently.
 */
 
 public class BallsController {

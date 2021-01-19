@@ -5,8 +5,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Random;
 
-/*This class defines the characteristics of the balls such as
- //size, movement, speed, and status (dependent of the outcome).
+/*
+ This class defines the characteristics of the balls such as
+ size, movement, speed, and status (dependent of the outcome).
  Also the method checkOS was implemented as a countermeasure due to discrepancies
  in the speed of movement of the balls in different operating systems.
 */
@@ -70,7 +71,7 @@ public class Ball {
         this.state = state;
         c.setFill(state.getColor());
     }
-
+    // this method defines the direction and speed of the balls
     public void move() {
         // if x/y get less then 0 Or greater than width/ height balls should bounce back from the wall
         if (x <= radius || x >= (area.getWidth()-radius)){
@@ -93,7 +94,7 @@ public class Ball {
         c.setTranslateX(x);
         c.setTranslateY(y);
     }
-
+    //determines if an infected ball is recovered or dead
     public void outcome(double deathrate) {
         double probability;
         if (state == State.INFECTED) {

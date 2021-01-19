@@ -8,7 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
+/*
+The uiInfoController class is in charge of the actions of the buttons and the look of the INFO page.
+*/
 public class uiInfoController {
 
     @FXML

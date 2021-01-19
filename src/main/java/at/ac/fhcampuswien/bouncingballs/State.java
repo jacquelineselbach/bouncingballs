@@ -2,8 +2,10 @@ package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.paint.Color;
 
+//This Class associates colors for each state
+
 public enum State {
-    // associated colors for each state
+
     HEALTHY {
         public Color getColor(){
             return Color.LIGHTGRAY;

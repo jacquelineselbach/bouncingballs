@@ -13,6 +13,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/*
+ The uiInfoController class is in charge of the actions of the buttons and the look of START page.
+*/
+
+
 public class uiStartController {
 
 
