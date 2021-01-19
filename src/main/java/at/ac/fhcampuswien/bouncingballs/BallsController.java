@@ -4,6 +4,11 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.Random;
 
+/* The class BallsController is in charge of the interaction between the balls, themselves and their surroundings.
+   Depending on the mode of the simulation (no precautions, social distancing, Lockdown, Lockdown with social distancing)
+   some of the balls will behave differently.
+*/
+
 public class BallsController {
     private ArrayList<Ball> balls;
     private static double areaheight;
@@ -17,7 +22,7 @@ public class BallsController {
         balls = new ArrayList<>();
 
 
-        // if lockdown is selected: half of the population stands still while the other half is moving casually
+        // if Lockdown is selected: half of the population stands still while the other half is moving casually
         if(uiSettingsController.getoptLockdown() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
@@ -30,16 +35,16 @@ public class BallsController {
             }
         }
 
-        // normal mode
+        // no precautions mode
         else {
 
-            // create healthy balls in area simulation
+            // this creates healthy balls in the area of simulation
             for (int i = 0; i < populationSize - 1; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
             }
         }
 
-        // add single infected ball in area simulation
+        // this adds a single infected ball in the area of simulation
         balls.add(new Ball(State.INFECTED, area));
         draw();
     }
@@ -83,11 +88,13 @@ public class BallsController {
                     (b.getX() > Ball.radius*4 && b.getX() < areawidth-(Ball.radius*4)) &&
                     (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4)) &&
                     (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4))){
+
                     /*
                     this prevents dead balls from bouncing or getting bounced of and it prevents
                      balls from bouncing too near the edge of the pane since they otherwise could
                     bounce out of bounds
                     */
+
                 if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceX();
                     b.bounceX();

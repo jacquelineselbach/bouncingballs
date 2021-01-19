@@ -5,6 +5,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Random;
 
+/*This class defines the characteristics of the balls such as
+ size, movement, speed, and status (dependent of the outcome).
+ Also the method checkOS was implemented as a countermeasure due to discrepancies
+ in the speed of movement of the balls in different operating systems.
+*/
+
 public class Ball {
     Random random = new Random();
     private Circle c; // draws circles on the screen
@@ -26,7 +32,6 @@ public class Ball {
 
     // variables regarding sickness and health
     private State state; // measured in frames -> target fps: 60 -> recovery duration = 7 sec. only used with frame limiter
-    //    public final static int healtime = 420;
     public final static int healtime = 900;
     private int sicktime = 0;
 
@@ -125,7 +130,7 @@ public class Ball {
         dy *= -1;
     }
 
-    // check if running host is OS X (macOS), because on that OS the balls are too slow :(
+    // checks if running host is OS X (macOS), because on that OS the balls are too slow :(
     private void checkOS(){
         if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS")){
             SPEED = 1.2;

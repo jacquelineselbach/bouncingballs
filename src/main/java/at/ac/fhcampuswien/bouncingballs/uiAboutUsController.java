@@ -9,6 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/* This class works only for the About Us page.
+
+*/
+
 public class uiAboutUsController {
     @FXML
     private Button backButton;

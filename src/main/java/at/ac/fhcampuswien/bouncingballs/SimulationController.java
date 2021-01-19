@@ -21,6 +21,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.EnumMap;
 
+/* The class SimulationController consists of all the methods needed for the functionality of the visual part of the simulation
+   e.g buttons, diagrams, etc
+ */
+
 public class SimulationController {
 
 

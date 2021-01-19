@@ -17,9 +17,13 @@ import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/* The uiSettingsController class is in charge of the actions on the settings (SET UP YOUR BALLS!) page.
+   Here you find the setters and getters that are used in other classes to activate the different modes.
+ */
+
 public class uiSettingsController implements Initializable {
 
-    // EveryOption gets a boolean Value
+    // Every option gets a boolean Value
     private static boolean optionNormal, optionSocialDist, optionLockdown, optionLockdownANDsocialDist;
 
     // Sim stage for IF Command
@@ -32,6 +36,8 @@ public class uiSettingsController implements Initializable {
 
     @FXML
     private Button startButton, backButton;
+
+    // 'initialize' selects a series of predefined boolean values (setProperties) to activate the selected mode
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -84,7 +90,7 @@ public class uiSettingsController implements Initializable {
         standardValues();
     }
 
-    // Start Button Method
+    // Start Button Method and actual visual simulation
     public void letsStart(ActionEvent actionEvent) {
 
         ((Stage)startButton.getScene().getWindow()).close();
