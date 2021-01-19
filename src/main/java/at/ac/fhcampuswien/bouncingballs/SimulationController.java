@@ -217,7 +217,7 @@ public class SimulationController {
 
                 // line chart
                 Circle c = new Circle(1,state.getColor());
-                c.setTranslateX(timer.getInstants() / 7.5);
+                c.setTranslateX(timer.getInstants() / 7.0);
                 c.setTranslateY(populationSize - currentPopulation.get(state));
                 chart.getChildren().add(c);
 
