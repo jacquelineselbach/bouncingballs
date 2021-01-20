@@ -24,10 +24,6 @@ public class Ball {
 
     // speed and direction variables
     private double SPEED = 1;
-
-    public void setSPEED (double speed){
-        SPEED = speed;
-    }
     private double dx;
     private double dy;
 
@@ -42,14 +38,14 @@ public class Ball {
         c = new Circle(radius, state.getColor());
 
         // creates "safespace" around balls if social distancing is active
-        if (uiSettingsController.getoptSocialDist() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
+        if (uiSettingsController.getoptSocialDist() || uiSettingsController.getoptLockdownANDsocialDist()){
             c.setStroke(Color.WHITE);
             c.setStrokeWidth(2);
         }
 
         // random starting positions 5 times radius away border in every direction
-        x = radius * 5 + random.nextDouble() * (area.getWidth() - radius * 10);
-        y = radius * 5 + random.nextDouble() * (area.getHeight() - radius * 10);
+        x = radius + random.nextDouble() * (area.getWidth() - radius*2);
+        y = radius + random.nextDouble() * (area.getHeight() - radius*2);
 
         // random starting directions measured in radians
         double direction = random.nextDouble() * 2 * Math.PI;
@@ -71,14 +67,20 @@ public class Ball {
         this.state = state;
         c.setFill(state.getColor());
     }
-    // this method defines the direction and speed of the balls
+
+    /*
+    this method facilitates movement of balls and lets them bounce off walls
+    if x/y coordinates of a given ball become less than its radius
+    or greater than the maximum width/height of the area minus its radius
+    the ball bounces by reversing direction on the corresponding axis
+    otherwise regular movement occurs
+     */
     public void move() {
-        // if x/y get less then 0 Or greater than width/ height balls should bounce back from the wall
-        if (x <= radius || x >= (area.getWidth()-radius)){
+        if (x < radius || x > (area.getWidth()-radius)){
             dx *= -1;
             x += dx * SPEED;
         }
-        else if (y <= radius || y >= (area.getHeight()-radius)){
+        else if (y < radius || y > (area.getHeight()-radius)){
             dy *= -1;
             y += dy * SPEED;
         }
@@ -94,6 +96,7 @@ public class Ball {
         c.setTranslateX(x);
         c.setTranslateY(y);
     }
+
     //determines if an infected ball is recovered or dead
     public void outcome(double deathrate) {
         double probability;
@@ -103,11 +106,15 @@ public class Ball {
 
             if (sicktime >= healtime && probability > deathrate/100) {
                 setState(State.RECOVERED);
-
-            } else if(sicktime >= healtime && probability <= deathrate/100) {
+            }
+            else if(sicktime >= healtime && probability <= deathrate/100) {
                 setState(State.DEAD);
             }
         }
+    }
+
+    public void setSPEED (double speed){
+        SPEED = speed;
     }
 
     public double getX(){

@@ -22,9 +22,8 @@ public class BallsController {
         areawidth = area.getWidth();
         balls = new ArrayList<>();
 
-
         // if Lockdown is selected: half of the population stands still while the other half is moving casually
-        if(uiSettingsController.getoptLockdown() == true || uiSettingsController.getoptLockdownANDsocialDist() == true){
+        if(uiSettingsController.getoptLockdown() || uiSettingsController.getoptLockdownANDsocialDist()){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
             }
@@ -38,7 +37,6 @@ public class BallsController {
 
         // no precautions mode
         else {
-
             // this creates healthy balls in the area of simulation
             for (int i = 0; i < populationSize - 1; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
@@ -77,25 +75,32 @@ public class BallsController {
     public void collisionCheck(Ball a, Ball b) {
         Random random = new Random();
         double rnd = random.nextDouble();
-        if (distance(a,b) < 2 * Ball.radius){ // if distance is less that 2 times the radius, collision occurred
+
+        if (distance(a, b) < 2 * Ball.radius){ // if distance is less that 2 times the radius a collision occurred
+
+            /*
+            infection takes place only between infected and healthy balls
+            and the infectionrate controls the chance of an infection occurring
+             */
             if (((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
                     (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) &&
                     rnd <= (infectionrate/100)){
                 a.setState(State.INFECTED);
                 b.setState(State.INFECTED);
             }
-            if((a.getState() != State.DEAD && b.getState() != State.DEAD)){
-//                    && (a.getX() > Ball.radius*4 && a.getX() < areawidth-(Ball.radius*4)) &&
-//                    (b.getX() > Ball.radius*4 && b.getX() < areawidth-(Ball.radius*4)) &&
-//                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4)) &&
-//                    (b.getY() > Ball.radius*4 && b.getY() < areaheight-(Ball.radius*4))){
 
-                    /*
-                    this prevents dead balls from bouncing or getting bounced of and it prevents
-                     balls from bouncing too near the edge of the pane since they otherwise could
-                    bounce out of bounds
-                    */
-
+            /*
+            Balls only bounce off each other if both aren't in the dead state and if they are at least 2 times
+            the radius away from each area border. This is needed because they could otherwise get stuck on walls
+            in rare occasions.
+            The bouncing axis are chosen by comparing movement direction parameters to prevent balls from
+            bunching up against each other
+             */
+            if((a.getState() != State.DEAD && b.getState() != State.DEAD) &&
+                    (a.getX() > Ball.radius*2 && a.getX() < areawidth-(Ball.radius*2)) &&
+                    (b.getX() > Ball.radius*2 && b.getX() < areawidth-(Ball.radius*2)) &&
+                    (a.getY() > Ball.radius*2 && a.getY() < areaheight-(Ball.radius*2)) &&
+                    (b.getY() > Ball.radius*2 && b.getY() < areaheight-(Ball.radius*2))){
                 if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceX();
                     b.bounceX();
@@ -108,7 +113,7 @@ public class BallsController {
                     a.bounceY();
                     b.bounceX();
                 }
-//                if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){ // last case
+                // (a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy())
                 else{
                     a.bounceX();
                     b.bounceY();
