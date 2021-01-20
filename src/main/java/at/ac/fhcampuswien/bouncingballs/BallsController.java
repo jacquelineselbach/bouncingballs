@@ -84,11 +84,11 @@ public class BallsController {
                 a.setState(State.INFECTED);
                 b.setState(State.INFECTED);
             }
-            if((a.getState() != State.DEAD && b.getState() != State.DEAD) &&
-                    (a.getX() > Ball.radius*4 && a.getX() < areawidth-(Ball.radius*4)) &&
-                    (b.getX() > Ball.radius*4 && b.getX() < areawidth-(Ball.radius*4)) &&
-                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4)) &&
-                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4))){
+            if((a.getState() != State.DEAD && b.getState() != State.DEAD)){
+//                    && (a.getX() > Ball.radius*4 && a.getX() < areawidth-(Ball.radius*4)) &&
+//                    (b.getX() > Ball.radius*4 && b.getX() < areawidth-(Ball.radius*4)) &&
+//                    (a.getY() > Ball.radius*4 && a.getY() < areaheight-(Ball.radius*4)) &&
+//                    (b.getY() > Ball.radius*4 && b.getY() < areaheight-(Ball.radius*4))){
 
                     /*
                     this prevents dead balls from bouncing or getting bounced of and it prevents
@@ -99,27 +99,22 @@ public class BallsController {
                 if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceX();
                     b.bounceX();
-                    a.move();
-                    b.move();
                 }
-                if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){
+                else if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){
                     a.bounceY();
                     b.bounceY();
-                    a.move();
-                    b.move();
                 }
-                if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
+                else if(a.getAbsDx() < a.getAbsDy() && b.getAbsDx() >= b.getAbsDy()){
                     a.bounceY();
                     b.bounceX();
-                    a.move();
-                    b.move();
                 }
-                if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){
+//                if(a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy()){ // last case
+                else{
                     a.bounceX();
                     b.bounceY();
-                    a.move();
-                    b.move();
                 }
+                a.move();
+                b.move();
             }
         }
     }
