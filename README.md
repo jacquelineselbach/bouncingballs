@@ -5,10 +5,7 @@ The population is shown as »Bouncing Balls«. It always starts with one infecte
 
 BALL CHARACTERISTICS
 
-HEALTHY - GREY
-INFECTED - YELLOW
-RECOVERED - BLUE
-DEAD - BLACK
+HEALTHY: GREY / INFECTED: YELLOW / RECOVERED: BLUE / DEAD: BLACK
 
 Every bounce of a ball from an infected ball to a healthy ball can possibly infect the uninfected ball and change 
 the state of this “person”. Infected balls are further spreading the infection until they recover. 
