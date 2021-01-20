@@ -43,7 +43,7 @@ public class Ball {
             c.setStrokeWidth(2);
         }
 
-        // random starting positions 5 times radius away border in every direction
+        // random starting positions one radius away from the border in every direction
         x = radius + random.nextDouble() * (area.getWidth() - radius*2);
         y = radius + random.nextDouble() * (area.getHeight() - radius*2);
 
