@@ -32,7 +32,7 @@ public class Ball {
     private double dy;
 
     // variables regarding sickness and health
-    private State state; // measured in frames -> target fps: 60 -> recovery duration = 7 sec. only used with frame limiter
+    private State state;
     public final static int healtime = 900;
     private int sicktime = 0;
 
