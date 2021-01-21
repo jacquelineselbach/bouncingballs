@@ -1,6 +1,5 @@
 package at.ac.fhcampuswien.bouncingballs;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +11,7 @@ import javafx.stage.Stage;
 /**
 The uiInfoController class is in charge of the actions of the buttons and the look of the INFO page.
 **/
+
 public class uiInfoController {
 
     @FXML
@@ -20,7 +20,7 @@ public class uiInfoController {
     private Button startButton;
 
     @FXML
-    public void back(ActionEvent actionEvent) {
+    public void back() {
 
         Stage backStage = (Stage)backButton.getScene().getWindow();
         ((Stage)backButton.getScene().getWindow()).close();
@@ -57,7 +57,7 @@ public class uiInfoController {
         }
     }
 
-    public void startConf(ActionEvent actionEvent) {
+    public void startConf() {
         Stage backStage = (Stage)startButton.getScene().getWindow();
         ((Stage)startButton.getScene().getWindow()).close();
 

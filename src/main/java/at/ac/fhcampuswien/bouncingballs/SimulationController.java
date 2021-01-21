@@ -1,7 +1,6 @@
 package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -124,7 +123,7 @@ public class SimulationController {
     Calculates how much balls are infected, healthy, etc..  pot = population over time
     */
 
-    private EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
+    private final EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
 
 
     /*
@@ -218,7 +217,7 @@ public class SimulationController {
     */
 
     @FXML
-    public void opensetting(ActionEvent actionEvent) {
+    public void opensetting() {
         ((Stage)settingsButton.getScene().getWindow()).close();
         stop();
         Stage startStage = new Stage();

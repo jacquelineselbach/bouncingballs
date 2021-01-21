@@ -1,6 +1,6 @@
 package at.ac.fhcampuswien.bouncingballs;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +29,7 @@ public class uiStartController {
     private Button aboutusButton;
 
     @FXML
-    protected void startConf(ActionEvent actionEvent) {
+    protected void startConf() {
 
         Stage startStage = (Stage)startButton.getScene().getWindow();
         ((Stage)startButton.getScene().getWindow()).close();
@@ -52,7 +52,7 @@ public class uiStartController {
     }
 
     @FXML
-    protected void info(ActionEvent actionEvent) {
+    protected void info() {
 
         Stage infoStage = (Stage) infoButton.getScene().getWindow();
         ((Stage)infoButton.getScene().getWindow()).close();
@@ -74,11 +74,11 @@ public class uiStartController {
         }
     }
 
-    public void exit(ActionEvent actionEvent) {
+    public void exit() {
     System.exit(0);
     }
 
-    public void aboutus(ActionEvent actionEvent) {
+    public void aboutus() {
 
         Stage aboutusStage = (Stage) aboutusButton.getScene().getWindow();
         ((Stage)aboutusButton.getScene().getWindow()).close();

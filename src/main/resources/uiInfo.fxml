@@ -15,20 +15,23 @@
    <Button fx:id="backButton" layoutX="82.0" layoutY="560.0" mnemonicParsing="false" onAction="#back" text="BACK" />
    <Button fx:id="startButton" layoutX="633.0" layoutY="560.0" mnemonicParsing="false" onAction="#startConf" text="START" />
    <Pane layoutX="28.0" layoutY="75.0" prefHeight="463.0" prefWidth="742.0">
-      <children>
-         <TextArea editable="false" layoutY="2.0" prefHeight="465.0" prefWidth="743.0" text="This Application is a Pandemic Simulator, which simulates the spread of infection through a population of 250. &#10;The population is shown as »Bouncing Balls«. It always starts with one infected person..&#10;&#10;HEALTHY &#10;&#10;INFECTED &#10;&#10;RECOVERED &#10;&#10;DEAD &#10;&#10;Every bounce of a ball from an infected ball to a healthy ball can possibly infect the uninfected ball and change &#10;the state of this “person”. Infected balls are further spreading the infection until they recover. &#10;The simulation stops when 0 infected balls are left. Got that?&#10;&#10;1. Press START and select the Simulation Properties. &#10;&#10;- Select «NO PRECAUTIONS» to simulate the spread with no measures taken&#10;- Select «SOCIAL DISTANCING» to simulate the spread with social distancing measures taken&#10;- Select «LOCKDOWN» to simulate the spread under lockdown&#10;- Select «LOCKDOWN WITH SOCIAL DISTANCING» to simulate the spread under both measures taken&#10;&#10;2. Press START again, hit the play button and watch the infection spread&#10;3. Pause or restart the simulation at any given time - hover over the buttons to show functions&#10;4. Hit the settings button to try another simulation property &#10;5. Compare different measures and you will be able to see differences in terms of numbers and infection and recovery rates" />
-         <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="52.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/dead.png" />
-         </ImageView>
-         <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="78.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/infected.png" />
-         </ImageView>
-         <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="92.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/recovered.png" />
-         </ImageView>
-         <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="77.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/healthy.png" />
-         </ImageView>
-      </children>
+      <TextArea editable="false" layoutY="2.0" prefHeight="465.0" prefWidth="743.0"
+                text="This Application is a Pandemic Simulator, which simulates the spread of infection through a population of 250. &#10;The population is shown as »Bouncing Balls«. It always starts with one infected person..&#10;&#10;HEALTHY &#10;&#10;INFECTED &#10;&#10;RECOVERED &#10;&#10;DEAD &#10;&#10;Every bounce of a ball from an infected ball to a healthy ball can possibly infect the uninfected ball and change &#10;the state of this “person”. Infected balls are further spreading the infection until they recover. &#10;The simulation stops when 0 infected balls are left. Got that?&#10;&#10;1. Press START and select the Simulation Properties. &#10;&#10;- Select «NO PRECAUTIONS» to simulate the spread with no measures taken&#10;- Select «SOCIAL DISTANCING» to simulate the spread with social distancing measures taken&#10;- Select «LOCKDOWN» to simulate the spread under lockdown&#10;- Select «LOCKDOWN WITH SOCIAL DISTANCING» to simulate the spread under both measures taken&#10;&#10;2. Press START again, hit the play button and watch the infection spread&#10;3. Pause or restart the simulation at any given time - hover over the buttons to show functions&#10;4. Hit the settings button to try another simulation property &#10;5. Compare different measures and you will be able to see differences in terms of numbers and infection and recovery rates"/>
+      <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="52.0" layoutY="162.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@images/dead.png"/>
+      </ImageView>
+      <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="78.0" layoutY="94.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@images/infected.png"/>
+      </ImageView>
+      <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="92.0" layoutY="128.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@images/recovered.png"/>
+      </ImageView>
+      <ImageView disable="true" fitHeight="12.0" fitWidth="12.0" layoutX="77.0" layoutY="60.0" pickOnBounds="true"
+                 preserveRatio="true">
+         <Image url="@images/healthy.png"/>
+      </ImageView>
    </Pane>
 </AnchorPane>

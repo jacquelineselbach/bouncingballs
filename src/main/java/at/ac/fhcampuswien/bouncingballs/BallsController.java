@@ -11,6 +11,7 @@ import java.util.Random;
 **/
 
 public class BallsController {
+
     private ArrayList<Ball> balls;
     private static double areaheight;
     private static double areawidth;
@@ -25,6 +26,7 @@ public class BallsController {
         /*
         If Lockdown is selected: half of the population stands still while the other half is moving casually.
         */
+
         if(uiSettingsController.getoptLockdown() || uiSettingsController.getoptLockdownANDsocialDist()){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
@@ -73,9 +75,11 @@ public class BallsController {
     }
 
     public double distance(Ball a, Ball b) {
+
         /*
         Euclidean Distance Formula - Standard Euclidean Distance
         */
+
         return (Math.sqrt(Math.pow(a.getX() - b.getX(), 2)) + (Math.pow(a.getY() - b.getY(), 2)));
     }
 

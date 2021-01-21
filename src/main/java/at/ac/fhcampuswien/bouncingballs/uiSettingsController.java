@@ -1,6 +1,5 @@
 package at.ac.fhcampuswien.bouncingballs;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,13 +18,10 @@ The uiSettingsController class is in charge of the actions on the settings (SET 
 Here you find the setters and getters that are used in other classes to activate the different modes.
 **/
 
-public class uiSettingsController implements Initializable {
+public class uiSettingsController implements Initializable { // controller initialization interface
 
     // Every option gets a boolean value
     private static boolean optionNormal, optionSocialDist, optionLockdown, optionLockdownANDsocialDist;
-
-    // sim stage for IF Command
-    private Stage simulationStage;
 
     private SimulationController sc;
 
@@ -42,28 +38,28 @@ public class uiSettingsController implements Initializable {
        standardValues();
     }
 
-    public void modeNormal(ActionEvent actionEvent) {
+    public void modeNormal() {
         setProperties(true,false,false, false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
-    public void modeSocialDist(ActionEvent actionEvent) {
+    public void modeSocialDist() {
         setProperties(false, true, false, false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
-    public void modeLockdown(ActionEvent actionEvent) {
+    public void modeLockdown() {
         setProperties(false, false, true, false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
-    public void modeLockdownANDsocialDist(ActionEvent actionEvent) {
+    public void modeLockdownANDsocialDist() {
         setProperties(false, false, false, true);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
     // Back Button Method
-    public void goBack(ActionEvent actionEvent) {
+    public void goBack() {
 
         Stage backStage = (Stage)backButton.getScene().getWindow();
         ((Stage) backButton.getScene().getWindow()).close();
@@ -102,15 +98,16 @@ public class uiSettingsController implements Initializable {
     }
 
     // Reset Button Method
-    public void reset(ActionEvent actionEvent) {
+    /*public void reset(ActionEvent actionEvent) {
         standardValues();
-    }
+    }*/
 
     // Start Button Method and actual visual simulation
-    public void letsStart(ActionEvent actionEvent) {
+    public void letsStart() {
 
         ((Stage)startButton.getScene().getWindow()).close();
-        simulationStage = new Stage();
+        // sim stage for IF Command
+        Stage simulationStage = new Stage();
 
         try {
 
@@ -159,7 +156,7 @@ public class uiSettingsController implements Initializable {
 
     // Reset Buttons and Options
     private void standardValues(){
-        setProperties(true,false,false, false);
+        setProperties(true,false,false,false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
     }
 
