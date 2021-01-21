@@ -7,7 +7,7 @@ BALL CHARACTERISTICS: HEALTHY - GREY / INFECTED - YELLOW / RECOVERED - BLUE / DE
 
 Every bounce of a ball from an infected ball to a healthy ball can possibly infect the uninfected ball and change 
 the state of this “person”. Infected balls are further spreading the infection until they recover. 
-The simulation stops when there is none infected ball left. Got that?
+The simulation stops when 0 infected balls are left. Got that?
 
 1. Press START and select the Simulation Properties. 
 
@@ -17,7 +17,7 @@ The simulation stops when there is none infected ball left. Got that?
 - Select «LOCKDOWN WITH SOCIAL DISTANCING» to simulate the spread under both measures taken
 
 2. Press START again, hit the play button and watch the infection spread
-3. Watch the HISTOGRAM while the simulation continues and remember the infection rate shown in POPULATION OVER TIME 
-4. To try another simulation property, hit the settings button
-5. Compare different measures and you will be able to see differences in infection and recovery rates
+3. You can pause and restart the simulation anytime - hover over the buttons to show functions
+4. Hit the settings button to try another simulation property 
+5. Compare different measures and you will be able to see differences in terms of numbers and infection and recovery rates
 
