@@ -190,6 +190,7 @@ public class SimulationController {
         area.getChildren().clear(); // clear scene before reset
         histogram.getChildren().clear(); // clear scene for histogram
         chart.getChildren().clear(); // clear scene for line chart
+        States.clear();
 
         resetswitch = true;
 
