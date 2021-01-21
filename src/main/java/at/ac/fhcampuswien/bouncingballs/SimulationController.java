@@ -19,20 +19,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.EnumMap;
 
-/*
+/**
  The class SimulationController consists of all the methods needed for the functionality of the visual
  part of the simulation: e.g animation, buttons, diagrams, etc
- */
+ **/
 
 public class SimulationController {
 
 
     private class BBAnimationTimer extends AnimationTimer {
 
-        /* The class AnimationTimer allows to create a timer, that is called in each frame while it is active.
+        /*
+        The class AnimationTimer allows to create a timer, that is called in each frame while it is active.
         An extending class has to override the method handle(long) which will be called in every frame.
         The methods start() and stop() allow to start and stop the timer.
-         */
+        */
 
         private int instants = 0; // time instants (single time steps) are needed for histogram and line chart
 
@@ -68,7 +69,9 @@ public class SimulationController {
         }
     }
 
-    /* @FXML annotation is used to tag nonpublic controller member fields and handler methods for use by FXML markup.*/
+    /*
+    @FXML annotation is used to tag nonpublic controller member fields and handler methods for use by FXML markup.
+    */
 
     @FXML
     private Pane area;
@@ -116,14 +119,18 @@ public class SimulationController {
         }
     }
 
-    /* Enum map is mapping from state to rectangle for creating the histogram.
-    Calculates how much balls are infected, healthy, etc..  pot = population over time */
+    /*
+    Enum map is mapping from state to rectangle for creating the histogram.
+    Calculates how much balls are infected, healthy, etc..  pot = population over time
+    */
 
     private EnumMap<State, Rectangle> pot = new EnumMap<>(State.class);
 
 
-    /* Accessible initialize() method - the FXML loader will call the initialize() method after
-    the loading of the FXML document is complete. */
+    /*
+    Accessible initialize() method - the FXML loader will call the initialize() method after
+    the loading of the FXML document is complete.
+    */
 
     @FXML
     public void initialize() {
@@ -138,8 +145,10 @@ public class SimulationController {
         disableButtons(true,false, true, true);
     }
 
-    /* Every single timestep the ball controller class is called to draw and move the balls,
-    resolve infections and collisions. */
+    /*
+    Every single timestep the ball controller class is called to draw and move the balls,
+    resolve infections and collisions.
+    */
 
     @FXML
     public void step() {
@@ -152,8 +161,10 @@ public class SimulationController {
         drawChart(); // as every time step goes the line chart will be drawn
     }
 
-    /* start() method starts the Animation timers. Once it is started, the handle(long) method of this AnimationTimers will
-    be called in every frame. The AnimationTimers can be stopped by calling stop(). */
+    /*
+    start() method starts the Animation timers. Once it is started, the handle(long) method of this AnimationTimers will
+    be called in every frame. The AnimationTimers can be stopped by calling stop().
+    */
 
     @FXML
     public void start() {
@@ -170,7 +181,9 @@ public class SimulationController {
         disableButtons(false,true, false, true);
     }
 
-    /* Stops the AnimationTimers. It can be activated again by calling start(). */
+    /*
+    Stops the AnimationTimers. It can be activated again by calling start().
+    */
 
     @FXML
     public void stop() {
@@ -180,7 +193,9 @@ public class SimulationController {
         disableButtons(false, false, true, false);
     }
 
-    /* reset() method stops the animation, resets the timer and clears all scenes. */
+    /*
+    reset() method stops the animation, resets the timer and clears all scenes.
+    */
 
     @FXML
     public void reset() {
@@ -197,8 +212,10 @@ public class SimulationController {
         disableButtons(true,false, true, true);
     }
 
-    /* opensetting() method enables returning to the settings scene. It closes the simulation scene and
-    opens the settings stage where the user can decide between simulation properties again. */
+    /*
+    opensetting() method enables returning to the settings scene. It closes the simulation scene and
+    opens the settings stage where the user can decide between simulation properties again.
+    */
 
     @FXML
     public void opensetting(ActionEvent actionEvent) {
@@ -220,8 +237,10 @@ public class SimulationController {
         }
     }
 
-    /* disableButtons() method enables and disables buttons during the simulation -
-    e.g. when the play button is active it gets disabled but therefore the pause button gets enabled */
+    /*
+    disableButtons() method enables and disables buttons during the simulation -
+    e.g. when the play button is active it gets disabled but therefore the pause button gets enabled
+    */
 
     public void disableButtons(boolean reset, boolean start, boolean stop, boolean step) {
         resetButton.setDisable(reset);
@@ -230,9 +249,11 @@ public class SimulationController {
         stepButton.setDisable(step);
     }
 
-    /* setupCharts() and drawChart() are handling mostly the appearance of the histogram and the linechart.
+    /*
+    setupCharts() and drawChart() are handling mostly the appearance of the histogram and the linechart.
     Additionally, thanks to the enum map we are able to know when there is none infected ball left and
-    therefore - to stop the animation at this exact point. */
+    therefore - to stop the animation at this exact point.
+    */
 
     public void setupCharts(){
         int offset = 0;
@@ -245,8 +266,10 @@ public class SimulationController {
         }
     }
 
-    /* creates a map between states and integers and builds up the charts in terms of numbers.
-    Every timestep we are calculating in which state the balls are in */
+    /*
+    creates a map between states and integers and builds up the charts in terms of numbers.
+    Every timestep we are calculating in which state the balls are in
+    */
 
     public void drawChart() {
 
@@ -259,15 +282,19 @@ public class SimulationController {
             currentPopulation.put(b.getState(), 1 + currentPopulation.get(b.getState()));
         }
 
-        /* setting heights for current populations / drawing the actual rectangles for histogram.
-        For example, if there are 50 balls infected, the height is going to be 50. */
+        /*
+        setting heights for current populations / drawing the actual rectangles for histogram.
+        For example, if there are 50 balls infected, the height is going to be 50.
+        */
 
         for (State state : pot.keySet()) {
             if (currentPopulation.containsKey(state)) {
                 pot.get(state).setHeight(currentPopulation.get(state));
                 pot.get(state).setTranslateY(populationSize - currentPopulation.get(state));
 
-                /* drawing the actual circles for the line chart */
+                /*
+                drawing the actual circles for the line chart
+                */
 
                 Circle c = new Circle(1,state.getColor());
                 c.setTranslateX(timer.getInstants() / 7.0);

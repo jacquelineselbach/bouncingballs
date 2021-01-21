@@ -4,11 +4,11 @@ import javafx.scene.layout.Pane;
 import java.util.ArrayList;
 import java.util.Random;
 
-/*
+/**
  The class BallsController is in charge of the interaction between the balls, themselves and their surroundings.
  Depending on the mode of the simulation (no precautions, social distancing, Lockdown, Lockdown with social distancing)
  some of the balls will behave differently.
-*/
+**/
 
 public class BallsController {
     private ArrayList<Ball> balls;
@@ -22,7 +22,9 @@ public class BallsController {
         areawidth = area.getWidth();
         balls = new ArrayList<>();
 
-        // if Lockdown is selected: half of the population stands still while the other half is moving casually
+        /*
+        If Lockdown is selected: half of the population stands still while the other half is moving casually.
+        */
         if(uiSettingsController.getoptLockdown() || uiSettingsController.getoptLockdownANDsocialDist()){
             for (int i = 0; i < (populationSize)/2; i++) {
                 balls.add(new Ball(State.HEALTHY, area));
@@ -35,7 +37,10 @@ public class BallsController {
             }
         }
 
-        // no precautions mode
+        /*
+        No precautions mode,
+        */
+
         else {
             // this creates healthy balls in the area of simulation
             for (int i = 0; i < populationSize - 1; i++) {
@@ -68,7 +73,9 @@ public class BallsController {
     }
 
     public double distance(Ball a, Ball b) {
-        // Euclidean Distance Formula - Standard Euclidean Distance
+        /*
+        Euclidean Distance Formula - Standard Euclidean Distance
+        */
         return (Math.sqrt(Math.pow(a.getX() - b.getX(), 2)) + (Math.pow(a.getY() - b.getY(), 2)));
     }
 
@@ -82,6 +89,7 @@ public class BallsController {
             infection takes place only between infected and healthy balls
             and the infectionrate controls the chance of an infection occurring
              */
+
             if (((a.getState() == State.INFECTED && b.getState() == State.HEALTHY) ||
                     (a.getState() == State.HEALTHY && b.getState() == State.INFECTED)) &&
                     rnd <= (infectionrate/100)){
@@ -96,6 +104,7 @@ public class BallsController {
             The bouncing axis are chosen by comparing movement direction parameters to prevent balls from
             bunching up against each other
              */
+
             if((a.getState() != State.DEAD && b.getState() != State.DEAD) &&
                     (a.getX() > Ball.radius*2 && a.getX() < areawidth-(Ball.radius*2)) &&
                     (b.getX() > Ball.radius*2 && b.getX() < areawidth-(Ball.radius*2)) &&

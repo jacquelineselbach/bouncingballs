@@ -5,12 +5,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Random;
 
-/*
- This class defines the characteristics of the balls such as
- size, movement, speed, and status (dependent of the outcome).
- Also the method checkOS was implemented as a countermeasure due to discrepancies
- in the speed of movement of the balls in different operating systems.
-*/
+/**
+This class defines the characteristics of the balls such as
+size, movement, speed, and status (dependent of the outcome).
+Also the method checkOS was implemented as a countermeasure due to discrepancies
+in the speed of movement of the balls in different operating systems.
+**/
 
 public class Ball {
 
@@ -78,7 +78,7 @@ public class Ball {
     or greater than the maximum width/height of the area minus its radius
     the ball bounces by reversing direction on the corresponding axis
     otherwise regular movement occurs
-     */
+    */
 
     public void move() {
         if (x < radius || x > (area.getWidth() - radius)){
@@ -95,8 +95,10 @@ public class Ball {
         }
     }
 
-    /* draw() method is where the actual balls are drawn on the scene with javafx.scene.shape
-    translated with javafx.scene.Node - base class for scene graph nodes. */
+    /*
+    draw() method is where the actual balls are drawn on the scene with javafx.scene.shape
+    translated with javafx.scene.Node - base class for scene graph nodes.
+    */
 
     public void draw() {
         c.setRadius(radius); // sets radius of circle c
@@ -104,7 +106,9 @@ public class Ball {
         c.setTranslateY(y); // defines the y coordinate of the translation
     }
 
-    /* outcome(double deathrate) determines if an infected ball is recovered or dead */
+    /*
+    outcome(double deathrate) determines if an infected ball is recovered or dead
+    */
 
     public void outcome(double deathrate) {
 
@@ -123,7 +127,9 @@ public class Ball {
         }
     }
 
-    /* setter for speed, getters for x, y and dx, dy */
+    /*
+    setter for speed, getters for x, y and dx, dy
+    */
 
     public void setSPEED (double speed) {
         SPEED = speed;
@@ -143,7 +149,9 @@ public class Ball {
         return Math.abs(dy);
     }
 
-    /* bounceX() and bounceY() changes direction/ bounce to exact opposite. */
+    /*
+    bounceX() and bounceY() changes direction/ bounce to exact opposite.
+    */
 
     public void bounceX() {
         dx *= -1;
@@ -152,7 +160,10 @@ public class Ball {
         dy *= -1;
     }
 
-    // checks if running host is OS X (macOS), because on that OS the balls are too slow :(
+    /*
+    checkOS() checks if running host is OS X (macOS), because on that OS the balls are too slow :(
+    */
+
     private void checkOS() {
         if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS")){
             SPEED = 1.2;

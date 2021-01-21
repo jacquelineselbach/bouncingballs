@@ -14,16 +14,17 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/* The uiSettingsController class is in charge of the actions on the settings (SET UP YOUR BALLS!) page.
-   Here you find the setters and getters that are used in other classes to activate the different modes.
- */
+/**
+The uiSettingsController class is in charge of the actions on the settings (SET UP YOUR BALLS!) page.
+Here you find the setters and getters that are used in other classes to activate the different modes.
+**/
 
 public class uiSettingsController implements Initializable {
 
-    // Every option gets a boolean Value
+    // Every option gets a boolean value
     private static boolean optionNormal, optionSocialDist, optionLockdown, optionLockdownANDsocialDist;
 
-    // Sim stage for IF Command
+    // sim stage for IF Command
     private Stage simulationStage;
 
     private SimulationController sc;
@@ -44,7 +45,6 @@ public class uiSettingsController implements Initializable {
     public void modeNormal(ActionEvent actionEvent) {
         setProperties(true,false,false, false);
         debugOutput(optionNormal,optionSocialDist,optionLockdown,optionLockdownANDsocialDist);
-
     }
 
     public void modeSocialDist(ActionEvent actionEvent) {
@@ -64,20 +64,39 @@ public class uiSettingsController implements Initializable {
 
     // Back Button Method
     public void goBack(ActionEvent actionEvent) {
+
         Stage backStage = (Stage)backButton.getScene().getWindow();
         ((Stage) backButton.getScene().getWindow()).close();
+
         try {
 
+            // set up of the scene
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));
             backStage.setScene(new Scene(root));
 
+            // set up of the stage
             backStage.setResizable(false); // prevents window from resizing
             backStage.setTitle("Bouncing Balls"); // sets title of the scene
-            backStage.getIcons().add(new Image("images/bb-logo.png"));
-            backStage.show();
+            backStage.getIcons().add(new Image("images/bb-logo.png")); // gets the logo
+            backStage.show(); // shows the current window
+
+        /*
+        Exception e indicates any kind of conditions that a reasonable application might want to catch
+        */
 
         } catch (Exception e) {
+
+            /*
+            printStackTrace() method of throwable class prints the throwable along with other details
+            like the line number and class name where the exception occurred.
+            */
+
             e.printStackTrace();
+
+            /*
+            java.lang.System.exit() method terminates running java virtual machine and takes a status code.
+            A non-zero value of status code is generally used to indicate abnormal termination.
+            */
             System.exit(1);
         }
     }
@@ -94,13 +113,17 @@ public class uiSettingsController implements Initializable {
         simulationStage = new Stage();
 
         try {
+
+            // set up of the scene
             FXMLLoader loader = new FXMLLoader();
             BorderPane root = loader.load(getClass().getResource("/simulationGUI.fxml").openStream());
             simulationStage.setScene(new Scene(root));
+
+            // set up of the stage
             simulationStage.setResizable(false); // prevents window from resizing
             simulationStage.setTitle("Bouncing Balls - Simulation"); // sets title of the scene
-            simulationStage.getIcons().add(new Image("images/bb-logo.png"));
-            simulationStage.show();
+            simulationStage.getIcons().add(new Image("images/bb-logo.png")); // gets the logo
+            simulationStage.show(); // shows the simulation window
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,7 +131,7 @@ public class uiSettingsController implements Initializable {
         }
     }
 
-    //Set Properties to Buttons and Options
+    // Set Properties to Buttons and Options
     private void setProperties(boolean normal, boolean distance, boolean lockdown, boolean lockdownandsocialdistancing){
         rbNormal.setSelected(normal);
         optionNormal = normal;

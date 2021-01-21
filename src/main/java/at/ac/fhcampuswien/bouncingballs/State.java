@@ -2,13 +2,17 @@ package at.ac.fhcampuswien.bouncingballs;
 
 import javafx.scene.paint.Color;
 
-/* enum class associates color with each of the 4 possible states (separated with commas) */
+/**
+enum class associates color with each of the 4 possible states (separated with commas)
+**/
 
 public enum State {
 
-    /* public final class Color extends javafx.scene.paint.Paint
-       = Base class for color or gradients used to fill shapes and backgrounds
-       when rendering the scene graph. */
+    /*
+    public final class Color extends javafx.scene.paint.Paint
+    = Base class for color or gradients used to fill shapes and backgrounds
+    when rendering the scene graph.
+    */
 
     HEALTHY {
         public Color getColor(){
