@@ -61,7 +61,7 @@ public class BallsController {
     public void moveBalls() {
         for (Ball b : balls) {
             if(b.getState() == State.DEAD){
-                continue; // to stop zombies from walking
+                continue; // stops zombies from walking
             }
            b.move();
         }
