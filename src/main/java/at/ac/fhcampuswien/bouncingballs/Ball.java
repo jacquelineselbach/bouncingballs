@@ -16,8 +16,8 @@ public class Ball {
 
     Random random = new Random();
 
-    private Circle c; // draws circles on the screen
-    private Pane area; // draws area on the screen
+    private final Circle c; // draws circles on the screen
+    private final Pane area; // draws area on the screen
 
     // positional variables and size of balls
     private double x; // position on x-axis

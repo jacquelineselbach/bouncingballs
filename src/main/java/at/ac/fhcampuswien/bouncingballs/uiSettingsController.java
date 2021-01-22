@@ -23,13 +23,14 @@ public class uiSettingsController implements Initializable { // controller initi
     // Every option gets a boolean value
     private static boolean optionNormal, optionSocialDist, optionLockdown, optionLockdownANDsocialDist;
 
-    private SimulationController sc;
+    // private SimulationController sc;
 
     @FXML
     private RadioButton rbNormal, rbSocialDist, rbLockdown, rbLockdownANDsocialDist;
 
     @FXML
     private Button startButton, backButton;
+
 
     // 'initialize' selects a series of predefined boolean values (setProperties) to activate the selected mode
 

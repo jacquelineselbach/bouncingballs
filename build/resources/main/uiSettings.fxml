@@ -59,10 +59,10 @@
           <Font name="Aktiv Grotesk Trial Bold Italic" size="18.0"/>
         </font>
     </Button>
-    <Button fx:id="resetButton" layoutX="317.0" layoutY="478.0" mnemonicParsing="false" onAction="#reset"
+    <!-- <Button fx:id="resetButton" layoutX="317.0" layoutY="478.0" mnemonicParsing="false" onAction="#reset"
             prefHeight="63.0" prefWidth="154.0" text="RESET" visible="false">
         <font>
           <Font name="Aktiv Grotesk Trial Bold Italic" size="18.0"/>
         </font>
-    </Button>
+    </Button>-->
 </AnchorPane>

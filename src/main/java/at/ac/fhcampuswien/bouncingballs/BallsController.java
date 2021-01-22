@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class BallsController {
 
-    private ArrayList<Ball> balls;
+    private final ArrayList<Ball> balls;
     private static double areaheight;
     private static double areawidth;
     private final static double infectionrate = SimulationController.getInfectionrate();

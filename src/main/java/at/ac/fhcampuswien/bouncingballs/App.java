@@ -21,7 +21,6 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         try {
             // set up of the start scene
-            FXMLLoader loader = new FXMLLoader();
             Parent root = FXMLLoader.load(getClass().getResource("/uiStart.fxml"));
             primaryStage.setScene(new Scene(root));
 
