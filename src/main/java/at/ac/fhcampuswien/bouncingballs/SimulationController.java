@@ -96,7 +96,7 @@ public class SimulationController {
     private BBAnimationTimer timer;
 
     private final static int populationSize = 250;
-    private final static double infectionrate = 100.;
+    private static double infectionrate = 100.;
     private final static double deathrate = 10.;
 
     private static boolean socialdistancing;
@@ -107,6 +107,7 @@ public class SimulationController {
 
 
     public static double getDeathrate(){
+
         return deathrate;
     }
 
