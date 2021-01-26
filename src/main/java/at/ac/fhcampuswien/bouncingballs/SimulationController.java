@@ -142,6 +142,7 @@ public class SimulationController {
         timer = new BBAnimationTimer();
 
         area.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null )));
+
         disableButtons(true,false, true, true);
     }
 
@@ -170,14 +171,17 @@ public class SimulationController {
     public void start() {
 
         if(ballsController == null || resetswitch) {
+
             ballsController = new BallsController(area, populationSize); // initialize new simulation
             setupCharts();
             drawChart();
         }
         timer.start();
         resetswitch = false;
+
         System.out.println("Socialdistancing: " + socialdistancing + " / Lockdown: " + lockdown +
-                " / Infectionsrate: " + getInfectionrate() + " / Deathrate: " + getDeathrate());
+                " / Infectionsrate: " + getInfectionrate() + " / Deathrate: " + getDeathrate() + " / Social Distancing + Lockdown: " + lockdownANDsocialDist);
+
         disableButtons(false,true, false, true);
     }
 
