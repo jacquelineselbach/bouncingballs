@@ -130,22 +130,16 @@
                <Insets bottom="-10.0" />
             </padding>
          </HBox>
-         <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0" >
+         <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0" styleClass="labelHeaders">
             <TextField fx:id="States" editable="false" prefHeight="34.0" prefWidth="317.0">
                <HBox.margin>
                   <Insets right="485.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Aktiv Grotesk Trial" size="11.0" />
-               </font>
             </TextField>
             <Label text="HEALTHY">
                <HBox.margin>
                   <Insets right="3.0" />
                </HBox.margin>
-               <font>
-                  <Font size="12.0" />
-               </font>
             </Label>
             <Label text="INFECTED">
                <font>
@@ -156,17 +150,11 @@
                </HBox.margin>
             </Label>
             <Label text="RECOVERED">
-               <font>
-                  <Font size="12.0" />
-               </font>
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
             <Label text="DEAD">
-               <font>
-                  <Font size="12.0" />
-               </font>
                <HBox.margin>
                   <Insets />
                </HBox.margin>

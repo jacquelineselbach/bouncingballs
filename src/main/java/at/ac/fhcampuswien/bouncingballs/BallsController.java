@@ -34,7 +34,7 @@ public class BallsController {
 
             for (int i = 0; i < (populationSize-1)/2; i++) {
                 Ball ball = new Ball(State.HEALTHY, area);
-                ball.setSPEED(0);
+                ball.setSpeed(0);
                 balls.add(ball);
             }
         }
@@ -126,7 +126,7 @@ public class BallsController {
                     a.bounceY();
                     b.bounceX();
                 }
-                // (a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy())
+                // else covers this condition: (a.getAbsDx() >= a.getAbsDy() && b.getAbsDx() < b.getAbsDy())
                 else{
                     a.bounceX();
                     b.bounceY();

@@ -22,10 +22,10 @@ public class Ball {
     // positional variables and size of balls
     private double x; // position on x-axis
     private double y; // position on y-axis
-    public static int radius = 5; // radius of the balls
+    public static final int radius = 5; // radius of the balls
 
     // speed and direction variables
-    private double SPEED = 1;
+    private double speed = 1;
     private double dx;
     private double dy;
 
@@ -83,15 +83,15 @@ public class Ball {
     public void move() {
         if (x < radius || x > (area.getWidth() - radius)){
             dx *= -1;
-            x += dx * SPEED;
+            x += dx * speed;
         }
         else if (y < radius || y > (area.getHeight() - radius)){
             dy *= -1;
-            y += dy * SPEED;
+            y += dy * speed;
         }
         else{
-            x += dx * SPEED;
-            y += dy * SPEED;
+            x += dx * speed;
+            y += dy * speed;
         }
     }
 
@@ -131,8 +131,8 @@ public class Ball {
     setter for speed, getters for x, y and dx, dy
     */
 
-    public void setSPEED (double speed) {
-        SPEED = speed;
+    public void setSpeed (double speed) {
+        speed = speed;
     }
 
     public double getX() {
@@ -166,7 +166,7 @@ public class Ball {
 
     private void checkOS() {
         if(System.getProperty("os.name").contains("OS X") || System.getProperty("os.name").contains("macOS")){
-            SPEED = 1.2;
+            speed = 1.2;
         }
     }
 }
