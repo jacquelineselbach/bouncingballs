@@ -23,6 +23,11 @@
     -fx-font-size: 45.0;
 }
 
+.settingsTitle2 {
+    -fx-font-family: "Aktiv Grotesk Trial Bold";
+    -fx-font-size: 28.0;
+}
+
 .titleButtons {
         -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
         -fx-font-size: 24.0;
@@ -36,11 +41,21 @@
 .infoaboutTitles{
     -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
     -fx-font-size: 36.0;
-
 }
 
 .rbButtonsText{
-    -fx-font-family: "Aktiv Grotesk Trial Regular";
-    -fx-font-size: 25.0;
+    -fx-font-family: "Aktiv Grotesk Trial";
+    -fx-font-size: 20.0;
 
 }
+
+.buttonsText{
+    -fx-font-family: "Aktiv Grotesk Trial Bold Italic";
+    -fx-font-size: 18.0;
+}
+
+.labelHeaders{
+    -fx-font-family: "Aktiv Grotesk Trial Medium Italic";
+    -fx-font-size: 16.0;
+}
+

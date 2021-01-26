@@ -58,26 +58,4 @@ public class uiAboutUsController {
             System.exit(1);
         }
     }
-
-    public void startConf() {
-        Stage backStage = (Stage)startButton.getScene().getWindow();
-        ((Stage)startButton.getScene().getWindow()).close();
-        try {
-
-
-            // set up of the scene
-            Parent root = FXMLLoader.load(getClass().getResource("/uiSettings.fxml"));
-            backStage.setScene(new Scene(root));
-
-            // set up of the stage
-            backStage.setResizable(false); // prevents window from resizing
-            backStage.setTitle("Bouncing Balls - SET UP YOUR BALLS!"); // sets title of the scene
-            backStage.getIcons().add(new Image("images/bb-logo.png")); // gets the logo
-            backStage.show(); // shows the current window
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-    }
 }

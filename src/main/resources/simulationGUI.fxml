@@ -20,18 +20,12 @@
          <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1280.0" />
          <HBox prefHeight="72.0" prefWidth="1280.0" spacing="605.0">
 
-            <Label alignment="TOP_LEFT" prefHeight="63.0" prefWidth="203.0" text="POPULATION  OVER TIME">
-               <font>
-                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
-               </font>
+            <Label alignment="TOP_LEFT" prefHeight="63.0" prefWidth="203.0" text="POPULATION  OVER TIME" styleClass="labelHeaders">
                <padding>
                   <Insets left="10.0" top="5.0" />
                </padding>
             </Label>
             <Label text="HISTOGRAM">
-               <font>
-                  <Font name="Aktiv Grotesk Trial Medium Italic" size="16.0" />
-               </font>
                <padding>
                   <Insets top="5.0" />
                </padding>
@@ -58,7 +52,7 @@
                </HBox.margin>
             </Pane>
             <VBox alignment="CENTER" prefHeight="249.0" prefWidth="159.0" spacing="10.0">
-               <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">    <!--  text="Reset">  -->
+               <Button fx:id="resetButton" mnemonicParsing="false" onAction="#reset">
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
@@ -72,7 +66,7 @@
                   </graphic>
 
                </Button>
-               <Button fx:id="startButton" mnemonicParsing="false" onAction="#start"> <!-- text="Start"> -->
+               <Button fx:id="startButton" mnemonicParsing="false" onAction="#start">
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
@@ -86,7 +80,7 @@
                   </graphic>
 
                </Button>
-               <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop"> <!-- text="Stop"> -->
+               <Button fx:id="stopButton" mnemonicParsing="false" onAction="#stop">
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
@@ -100,7 +94,7 @@
                   </graphic>
 
                </Button>
-               <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step"> <!-- text="Step"> -->
+               <Button fx:id="stepButton" mnemonicParsing="false" onAction="#step">
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                   </padding>
@@ -126,33 +120,26 @@
                         <Image url="images/settings.png" />
                      </ImageView>
                   </graphic>
-
                </Button>
+
                <padding>
                   <Insets bottom="15.0" top="-15.0" />
                </padding>
-
             </VBox>
             <padding>
                <Insets bottom="-10.0" />
             </padding>
          </HBox>
-         <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0">
+         <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0" styleClass="labelHeaders">
             <TextField fx:id="States" editable="false" prefHeight="34.0" prefWidth="317.0">
                <HBox.margin>
                   <Insets right="485.0" />
                </HBox.margin>
-               <font>
-                  <Font name="Aktiv Grotesk Trial" size="11.0" />
-               </font>
             </TextField>
             <Label text="HEALTHY">
                <HBox.margin>
                   <Insets right="3.0" />
                </HBox.margin>
-               <font>
-                  <Font size="12.0" />
-               </font>
             </Label>
             <Label text="INFECTED">
                <font>
@@ -163,17 +150,11 @@
                </HBox.margin>
             </Label>
             <Label text="RECOVERED">
-               <font>
-                  <Font size="12.0" />
-               </font>
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Label>
             <Label text="DEAD">
-               <font>
-                  <Font size="12.0" />
-               </font>
                <HBox.margin>
                   <Insets />
                </HBox.margin>
