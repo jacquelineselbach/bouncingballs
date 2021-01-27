@@ -16,8 +16,8 @@ public class Ball {
 
     Random random = new Random();
 
-    private final Circle c; // draws circles on the screen
-    private final Pane area; // draws area on the screen
+    private final Circle c; // circles on the screen
+    private final Pane area; // area on the screen
 
     // positional variables and size of balls
     private double x; // position on x-axis
@@ -132,7 +132,7 @@ public class Ball {
     */
 
     public void setSpeed (double speed) {
-        speed = speed;
+        this.speed = speed;
     }
 
     public double getX() {

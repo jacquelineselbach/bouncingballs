@@ -223,6 +223,7 @@ public class SimulationController {
 
     @FXML
     public void opensetting() {
+
         ((Stage)settingsButton.getScene().getWindow()).close();
         stop();
         Stage startStage = new Stage();
