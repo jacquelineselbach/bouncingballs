@@ -14,22 +14,27 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.bouncingballs.SimulationController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <Pane fx:id="area" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="603.0" prefWidth="1280.0" />
-         <HBox prefHeight="72.0" prefWidth="1280.0" spacing="605.0">
+         <HBox prefHeight="72.0" prefWidth="1280.0" spacing="580.0">
 
-            <Label alignment="TOP_LEFT" prefHeight="63.0" prefWidth="203.0" text="POPULATION  OVER TIME" styleClass="labelHeaders">
+            <Label alignment="TOP_LEFT" prefHeight="32.0" prefWidth="243.0" styleClass="labelHeaders" text="POPULATION  OVER TIME">
                <padding>
                   <Insets left="10.0" top="5.0" />
                </padding>
+               <font>
+                  <Font name="Aktiv Grotesk Trial Bold Italic" size="16.0" />
+               </font>
             </Label>
             <Label text="HISTOGRAM">
                <padding>
                   <Insets top="5.0" />
                </padding>
+               <font>
+                  <Font name="Aktiv Grotesk Trial Bold Italic" size="16.0" />
+               </font>
             </Label>
             <VBox.margin>
                <Insets />
@@ -132,33 +137,45 @@
             </padding>
          </HBox>
          <HBox prefHeight="20.0" prefWidth="299.0" spacing="15.0" styleClass="labelHeaders">
-            <TextField fx:id="States" editable="false" prefHeight="34.0" prefWidth="317.0">
+            <TextField fx:id="States" editable="false" prefHeight="37.0" prefWidth="350.0">
                <HBox.margin>
-                  <Insets right="485.0" />
+                  <Insets right="453.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Aktiv Grotesk Trial" size="12.0" />
+               </font>
             </TextField>
             <Label text="HEALTHY">
                <HBox.margin>
-                  <Insets right="3.0" />
+                  <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="Aktiv Grotesk Trial" size="12.0" />
+               </font>
             </Label>
             <Label text="INFECTED">
-               <font>
-                  <Font size="12.0" />
-               </font>
                <HBox.margin>
                   <Insets right="-5.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Aktiv Grotesk Trial" size="12.0" />
+               </font>
             </Label>
             <Label text="RECOVERED">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets right="2.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Aktiv Grotesk Trial" size="12.0" />
+               </font>
             </Label>
             <Label text="DEAD">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <font>
+                  <Font name="Aktiv Grotesk Trial" size="12.0" />
+               </font>
             </Label>
             <padding>
                <Insets bottom="20.0" left="20.0" />
